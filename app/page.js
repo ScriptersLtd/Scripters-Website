@@ -1,10 +1,12 @@
-import localFont from 'next/font/local'
+import Hero from "@/components/Hero";
+import localFont from "next/font/local";
 
 export default function Home() {
   return (
-<>
-<p className='font-vo'>fdasfsdf</p>
-
-</>
+    <>
+      <div className="">
+        <Hero />
+      </div>
+    </>
   );
 }
