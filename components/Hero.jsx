@@ -10,43 +10,42 @@ import {
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const staggerTaglineItems = stagger(0.2, {startDelay: 2});
+const staggerTaglineItems = stagger(0.2, { startDelay: 2 });
 function useTaglineAnimation(isVisible) {
+  const [marquee, setPlayMarquee] = useState();
   const [scope, animate] = useAnimate();
   useEffect(() => {
     animate(
       "span",
-      
-      { opacity: 1,},
-      
+      { opacity: 1, y: 0 },
       {
-        duration: 0.2,
-        delay: stagger(0.1, {startDelay:3})
-      },
-
+        duration: 0.15,
+        delay: stagger(0.1, { startDelay: 4 }),
+      }
     );
-    
   }, [isVisible]);
 
   return scope;
 }
+const title = "WE THE SAGACIOUS";
+const spacedTitle = title.replace(/\s/g, "\u00A0");
 
-const TagLine = ({ title, playMarquee, isVisible }) => {
-  const scope = useTaglineAnimation(isVisible)
+const TagLine = ({ spacedTitle, playMarquee, isVisible }) => {
+  const scope = useTaglineAnimation(isVisible);
   return (
-      <motion.p ref={scope} className="text-neutral-100" >
-        {[...title].map((letter, index) => (
-        <motion.span
-          key={index}
-          initial={{opacity:0, y:400}}
-          animate={{y:0}}
-          transition={{ease: [0.6, 0.01, -0.05, 0.95],
-            duration: 1,}}
-        >
-          {letter} 
-        </motion.span>
+    <div className="marquee">
+    <motion.p ref={scope} className={`z-50 text-neutral-100 text-[130px]`}>
+      {[...spacedTitle].map((letter, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, y: 80 }}
+            className="inline-block"
+          >
+            {letter}
+          </motion.span>
       ))}
-      </motion.p>
+    </motion.p>
+    </div>
   );
 };
 
@@ -66,7 +65,6 @@ const Hero = () => {
   ];
 
   const [playMarquee, setPlayMarquee] = useState(false);
-
   useEffect(() => {
     setTimeout(() => {
       setPlayMarquee(true);
@@ -81,18 +79,17 @@ const Hero = () => {
             <motion.span
               key={index}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1, y:100 }}
+              animate={{ opacity: 1, y: 100 }}
               transition={{ duration: 0.2, delay: letter.delay }}
-              className="text-[200px] text-neutral-100"
+              className="text-[150px] text-neutral-100"
             >
               {letter.name}
             </motion.span>
-            
           ))}
           <TagLine
-          title={`WE THE SUGACIOUS`}
-          playMarquee={playMarquee}
-          isVisible={isVisible}
+            spacedTitle={spacedTitle}
+            playMarquee={playMarquee}
+            isVisible={isVisible}
           />
         </>
       )}
@@ -158,35 +155,18 @@ const Hero = () => {
           )}
         </AnimatePresence>
         {!isVisible && (
-            <motion.img
-              transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
-              src={"/image-main.jpg"}
-              layoutId="main-image-1"
-              width={500}
-              height={500}
-              className="absolute -bottom-[750px] left-[20%] w-[60vw] h-auto "
-            />
+          <motion.img
+            transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
+            src={"/image-main.jpg"}
+            layoutId="main-image-1"
+            width={500}
+            height={500}
+            className="absolute -bottom-[750px] left-[20%] w-[60vw] h-auto "
+          />
         )}
       </LayoutGroup>
     </div>
   );
 };
-
-const AnimatedLetters = ({ title, disabled }) => {
-  return (
-    <>
-      {[...title].map((letter, index) => (
-        <span
-          key={index}
-          className="row-letter text-neutral-100"
-        >
-          {letter}
-        </span>
-      ))}
-    </>
-  );
-};
-
-
 
 export default Hero;
