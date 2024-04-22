@@ -10,53 +10,57 @@ import {
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const staggerMenuItems = stagger(0.3, { startDelay: 0.15 });
+const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
-
-function useTaglineAnimation(isVisible) {
+const useTaglineAnimation = (isOpen) => {
   const [scope, animate] = useAnimate();
+
   useEffect(() => {
     animate(
-      
-      "span",
-      !isVisible ? { opacity: 0 } : { opacity:0},
+      "li",
+      isOpen
+        ? { opacity: 1, }
+        : { opacity: 0,},
       {
-        duration: 0.2,
-        delay: isVisible ? staggerMenuItems : 1,
+        duration: 2.2,
+        delay: isOpen ? staggerMenuItems : 0,
       }
     );
-  }, [isVisible]);
-
+  }, [isOpen]);
   return scope;
-}
-
+};
 const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 1000);
+      setIsOpen(true);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
-  return <><TagLine  isVisible={isVisible} ></TagLine></>;
-};
-
-const TagLine = ({ isVisible }) => {
-  const scope = useTaglineAnimation(isVisible);
   return (
     <>
-      <motion.p ref={scope} className="">
-          <motion.span>A</motion.span>
-          <motion.span>A</motion.span>
-          <motion.span>A</motion.span>
-          <motion.span>A</motion.span>
-          <motion.span>A</motion.span>
-          <motion.span>A</motion.span>
-          <motion.span>A</motion.span>
-          <motion.span>A</motion.span>
-      </motion.p>
+      <TagLine isOpen={isOpen} />
+    </>
+  );
+};
+
+const TagLine = ({ isOpen }) => {
+  const scope = useTaglineAnimation(isOpen)
+  return (
+    <>
+      <nav>
+        <ul
+           ref={scope}
+          className="text-black"
+        >
+          <motion.li initial={{opacity:0}}>Item 1 </motion.li>
+          <motion.li initial={{opacity:0}}>Item 3 </motion.li>
+          <motion.li initial={{opacity:0}}>Item 2 </motion.li>
+          <motion.li initial={{opacity:0}}>Item 4 </motion.li>
+          <motion.li initial={{opacity:0}}>Item 5 </motion.li>
+        </ul>
+      </nav>
     </>
   );
 };

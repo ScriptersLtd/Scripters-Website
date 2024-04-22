@@ -16,12 +16,12 @@ function useTaglineAnimation(isVisible) {
   useEffect(() => {
     animate(
       "span",
-      !isVisible
-        ? { opacity: 1, y:0 }
-        : { opacity: 0.1, y:200 },
+      
+      { opacity: 1,},
+        
       {
-        duration: 2,
-        delay: stagger(0.2, {startDelay:4}) 
+        duration: 0.2,
+        delay: stagger(0.1, {startDelay:3}) 
       }
     );
   }, [isVisible]);
@@ -32,15 +32,19 @@ function useTaglineAnimation(isVisible) {
 const TagLine = ({ title, playMarquee, isVisible }) => {
   const scope = useTaglineAnimation(isVisible)
   return (
-      <p ref={scope} className="text-neutral-100" >
+      <motion.p ref={scope} className="text-neutral-100" >
         {[...title].map((letter, index) => (
-        <span
+        <motion.span
           key={index}
+          initial={{opacity:0, y:400}}
+          animate={{y:0}}
+          transition={{ease: [0.6, 0.01, -0.05, 0.95],
+            duration: 1,}}
         >
           {letter} 
-        </span>
+        </motion.span>
       ))}
-      </p>
+      </motion.p>
   );
 };
 
@@ -75,7 +79,7 @@ const Hero = () => {
             <motion.span
               key={index}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{ opacity: 1, y:100 }}
               transition={{ duration: 0.2, delay: letter.delay }}
               className="text-[200px] text-neutral-100"
             >
@@ -166,20 +170,20 @@ const Hero = () => {
   );
 };
 
-// const AnimatedLetters = ({ title, disabled }) => {
-//   return (
-//     <>
-//       {[...title].map((letter, index) => (
-//         <span
-//           key={index}
-//           className="row-letter text-neutral-100"
-//         >
-//           {letter}
-//         </span>
-//       ))}
-//     </>
-//   );
-// };
+const AnimatedLetters = ({ title, disabled }) => {
+  return (
+    <>
+      {[...title].map((letter, index) => (
+        <span
+          key={index}
+          className="row-letter text-neutral-100"
+        >
+          {letter}
+        </span>
+      ))}
+    </>
+  );
+};
 
 
 
