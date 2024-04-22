@@ -18,12 +18,14 @@ function useTaglineAnimation(isVisible) {
       "span",
       
       { opacity: 1,},
-        
+      
       {
         duration: 0.2,
-        delay: stagger(0.1, {startDelay:3}) 
-      }
+        delay: stagger(0.1, {startDelay:3})
+      },
+
     );
+    
   }, [isVisible]);
 
   return scope;
