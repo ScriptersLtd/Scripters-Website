@@ -1,26 +1,7 @@
-import localFont from 'next/font/local'
-
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
-const cascadia = localFont({
-  src: [
-    {
-      path: './fonts/CascadiaCode.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './fonts/CascadiaCodeItalic.woff2',
-      weight: '400',
-      style: 'italic',
-    },
-
-    {
-      path: './fonts/CascadiaMono.woff2',
-      weight: '700',
-      style: 'mono',
-    },
-  ],
-})
+import { HeroContextProvider } from "@/utils/contextProvider";
+const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -30,7 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={cascadia.className}>{children}</body>
+      <body className={roboto.className}>
+        <HeroContextProvider>{children}</HeroContextProvider>
+      </body>
     </html>
   );
 }

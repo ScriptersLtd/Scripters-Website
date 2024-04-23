@@ -1,4 +1,5 @@
 "use client";
+import { cascadia } from "@/utils/cascadia";
 import {
   useAnimate,
   stagger,
@@ -6,13 +7,34 @@ import {
   AnimatePresence,
   LayoutGroup,
   delay,
+
 } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext, useContext } from "react";
+import { useHeroContext } from "@/utils/contextProvider";
 
-const staggerTaglineItems = stagger(0.2, { startDelay: 2 });
-function useTaglineAnimation(isVisible) {
-  const [marquee, setPlayMarquee] = useState();
+
+
+const title = "We The Sagacious";
+const spacedTitle = title.replace(/\s/g, "\u00A0");
+const name = [
+  { name: ":", delay: 3.6 },
+  { name: "/", delay: 3.4 },
+  { name: "S", delay: 3.8 },
+  { name: "C", delay: 3.2 },
+  { name: "R", delay: 3.5 },
+  { name: "I", delay: 3.1 },
+  { name: "P", delay: 2.8 },
+  { name: "T", delay: 3.2 },
+  { name: "E", delay: 3.9 },
+  { name: "R", delay: 3.3 },
+  { name: "S", delay: 3.8 },
+  { name: ">", delay: 3.7 },
+  { name: "_", delay: 3.9 },
+];
+
+
+function useTaglineAnimation(isVisible, delay) {
   const [scope, animate] = useAnimate();
   useEffect(() => {
     animate(
@@ -20,22 +42,23 @@ function useTaglineAnimation(isVisible) {
       { opacity: 1, y: 0 },
       {
         duration: 0.15,
-        delay: stagger(0.1, { startDelay: 4 }),
+        delay: stagger(0.05, { startDelay: delay }),
       }
     );
   }, [isVisible]);
 
   return scope;
 }
-const title = "WE THE SAGACIOUS";
-const spacedTitle = title.replace(/\s/g, "\u00A0");
 
-const TagLine = ({ spacedTitle, playMarquee, isVisible }) => {
-  const scope = useTaglineAnimation(isVisible);
+const TagLine = ({ spacedTitle, isVisible, delay }) => {
+  const scope = useTaglineAnimation(isVisible, delay);
   return (
-    <div className="marquee">
-    <motion.p ref={scope} className={`z-50 text-neutral-100 text-[130px]`}>
-      {[...spacedTitle].map((letter, index) => (
+    <div className="marquee mt-44">
+      <motion.p
+        ref={scope}
+        className={`p1 text-neutral-100 text-[170px] whitespace-nowrap`}
+      >
+        {[...spacedTitle].map((letter, index) => (
           <motion.span
             key={index}
             initial={{ opacity: 0, y: 80 }}
@@ -43,53 +66,72 @@ const TagLine = ({ spacedTitle, playMarquee, isVisible }) => {
           >
             {letter}
           </motion.span>
-      ))}
-    </motion.p>
+        ))}
+      </motion.p>
+      <p className="p2 text-neutral-100 text-[170px] whitespace-nowrap">
+        We The Sagacious
+      </p>
     </div>
   );
 };
 
 const Hero = () => {
-  const [isVisible, setIsVisible] = useState(true);
 
-  const name = [
-    { name: "S", delay: 3.8 },
-    { name: "C", delay: 3.2 },
-    { name: "R", delay: 3.5 },
-    { name: "I", delay: 3.1 },
-    { name: "P", delay: 2.8 },
-    { name: "T", delay: 3.2 },
-    { name: "E", delay: 3.9 },
-    { name: "R", delay: 3.3 },
-    { name: "S", delay: 3.8 },
-  ];
-
-  const [playMarquee, setPlayMarquee] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setPlayMarquee(true);
-    }, 2000);
-  }, []);
-
+  const { isLogoVisible, isVisible, setIsLogoVisible, setIsVisible } = useHeroContext();
   return (
     <div className="relative h-[100vh] bg-neutral-900">
       {!isVisible && (
         <>
-          {name.map((letter, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, y: 100 }}
-              transition={{ duration: 0.2, delay: letter.delay }}
-              className="text-[150px] text-neutral-100"
-            >
-              {letter.name}
-            </motion.span>
-          ))}
+          <LayoutGroup>
+            {!isLogoVisible && (
+              <motion.div
+                className="absolute top-0 left-0"
+                transition={{ duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] }}
+                layoutId="logo-text"
+              >
+                {name.map((letter, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, y: 100 }}
+                    transition={{ duration: 0.2, delay: letter.delay }}
+                    className={`text-[150px] text-neutral-100 ${cascadia.className}`}
+                  >
+                    {letter.name}
+                  </motion.span>
+                ))}
+              </motion.div>
+            )}
+            {isLogoVisible && (
+              <motion.div
+                className="absolute top-0 left-0"
+                transition={{ duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] }}
+                layoutId="logo-text"
+              >
+                {name.map((letter, index) => (
+                  <motion.span
+                    key={index}
+                    className={`text-[50px] text-neutral-100 ${cascadia.className}`}
+                  >
+                    {letter.name}
+                  </motion.span>
+                ))}
+              </motion.div>
+            )}
+          </LayoutGroup>
+          <motion.p
+            className="text-neutral-100 text-lg max-w-xl ml-auto"
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4, delay:3}}
+          >
+            sidfuh uasidfb iysabdf oibsadf bsaif bsiavn ioefb isnadpisbaei
+            nsapdvn psaoen sanef pipisaefu nsaiebnc isaoe pisanef psane isnaf
+          </motion.p>
           <TagLine
             spacedTitle={spacedTitle}
-            playMarquee={playMarquee}
             isVisible={isVisible}
+            delay={4}
           />
         </>
       )}
@@ -161,7 +203,7 @@ const Hero = () => {
             layoutId="main-image-1"
             width={500}
             height={500}
-            className="absolute -bottom-[750px] left-[20%] w-[60vw] h-auto "
+            className="absolute -bottom-[450px] left-[20%] w-[60vw] h-auto "
           />
         )}
       </LayoutGroup>
