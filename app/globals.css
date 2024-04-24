@@ -27,6 +27,8 @@
     -moz-animation: scroll-left 2s linear infinite;
     -webkit-animation: scroll-left 2s linear infinite;
     animation: scroll-left 12s linear infinite;
+    animation-delay: 3s;
+
 }
 .p2 {
     position: absolute;
@@ -41,7 +43,11 @@
     -moz-animation: scroll-left 2s linear infinite;
     -webkit-animation: scroll-left 2s linear infinite;
     animation: scroll-left 12s linear infinite;
-    animation-delay: 6s;
+    animation-delay: 9s;
+}
+
+.blinking_text {
+    animation: blink 1.5s linear infinite; ;
 }
 
 @-moz-keyframes scroll-left {
@@ -72,5 +78,20 @@
         -moz-transform: translateX(-100%);
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%);
+    }
+}
+@keyframes blink {
+    0% {
+        visibility: visible;
+    }
+    23% {
+        visibility: hidden;
+    }
+    76%{
+        visibility: hidden;
+
+    }
+    100% {
+        visibility: visible;
     }
 }
