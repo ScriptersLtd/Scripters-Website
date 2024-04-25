@@ -6,14 +6,11 @@ import {
   motion,
   AnimatePresence,
   LayoutGroup,
-
-
 } from "framer-motion";
 import Image from "next/image";
 import { useEffect } from "react";
 import { useHeroContext } from "@/utils/contextProvider";
-
-
+import Socials from "./Socials";
 
 const title = "We The Sagacious";
 const spacedTitle = title.replace(/\s/g, "\u00A0");
@@ -64,10 +61,11 @@ const Hero = () => {
 
   const {  isVisible,  setIsVisible } = useHeroContext();
   return (
-    <div className="relative h-[80vh] bg-neutral-900">
-   
+    <div className="panel relative min-h-[100vh] " data-color="black">
+      <div className="flex justify-between pt-44 px-32">
+          <Socials />
           <motion.p
-            className="text-neutral-100 max-w-lg ml-auto pt-44"
+            className="text-neutral-100 max-w-lg ml-auto my-auto"
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, delay:3}}
@@ -75,12 +73,13 @@ const Hero = () => {
             sidfuh uasidfb iysabdf oibsadf bsaif bsiavn ioefb isnadpisbaei
             nsapdvn psaoen sanef pipisaefu nsaiebnc isaoe pisanef psane isnaf
           </motion.p>
+        </div>
+
           <TagLine
             spacedTitle={spacedTitle}
             isVisible={isVisible}
             delay={5}
           />
-        
       <LayoutGroup>
         <AnimatePresence>
           {isVisible && (
@@ -90,7 +89,6 @@ const Hero = () => {
                 animate={{ opacity: 0.8, y: 10 }}
                 transition={{ duration: 3, ease: "anticipate", delay: 0.2 }}
                 exit={{ opacity: 0, y: -500 }}
-                onAnimationComplete={() => setIsVisible(false)}
                 className="absolute top-44 right-16 overflow-hidden"
               >
                 <Image src={"/image-4.jpg"} width={400} height={600} alt="as" />
@@ -125,33 +123,10 @@ const Hero = () => {
               >
                 <Image src={"/image-3.jpg"} width={400} height={400} alt="as" />
               </motion.div>
-              <motion.div>
-                <motion.img
-                  initial={{ opacity: 0, y: 500 }}
-                  animate={{ opacity: 1, y: 10 }}
-                  transition={{ duration: 4.5, ease: "anticipate" }}
-                  layoutId="main-image-1"
-                  onAnimationComplete={() => setIsVisible(false)}
-                  className="absolute top-44 left-[35%] "
-                  src={"/image-main.jpg"}
-                  width={600}
-                  height={600}
-                  alt="as"
-                />
-              </motion.div>
+            
             </div>
           )}
         </AnimatePresence>
-        {!isVisible && (
-          <motion.img
-            transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
-            src={"/image-main.jpg"}
-            layoutId="main-image-1"
-            width={500}
-            height={500}
-            className="absolute -bottom-[700px] left-[20%] w-[60vw] h-auto "
-          />
-        )}
       </LayoutGroup>
     </div>
   );

@@ -10,6 +10,11 @@
     width: 0; /* Remove scrollbar width */
     height: 0; /* Remove scrollbar height */
 }
+
+body {
+    transition: background-color 0.7s ease;
+  }
+
 .marquee {
     position: relative;
 }
@@ -49,6 +54,45 @@
 .blinking_text {
     animation: blink 1.5s linear infinite; ;
 }
+.panel{
+    min-height: 100vh;
+}
+
+.color-black {
+    background-color: rgb(23 23 23);
+  }
+.color-white {
+    background-color: rgb(245 245 245);
+  }
+  .listt {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px; /* Adjust as needed */
+    padding-bottom: 2px; /* Adjust as needed */
+  }
+  
+  .listt::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Adjust as needed */
+    background-color: rgb(245 245 245); /* Adjust as needed */
+    transition: width 0.5s ease; /* Transition for the underline animation */
+
+  }
+  
+
+  
+  .listt:hover::after {
+    width: 100%;
+    animation: glow 0.5s infinite alternate; /* Animation for the glowing effect */
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.3); /* Adjust glow effect */
+
+  }
+
+
 
 @-moz-keyframes scroll-left {
     0% {

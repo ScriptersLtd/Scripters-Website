@@ -9,6 +9,8 @@ export const useHeroContext = () => {
 export const HeroContextProvider = ({ children }) => {
   const [isLogoVisible, setIsLogoVisible] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isOpen, setOpen] = useState(false);
+
   useEffect(() => {
     setTimeout(() => setIsLogoVisible(true), 7500);
   });
@@ -19,6 +21,8 @@ export const HeroContextProvider = ({ children }) => {
   }, []);
 
   const contextValue = {
+    isOpen,
+    setOpen,
     isLogoVisible,
     isVisible,
     setIsLogoVisible,

@@ -1,6 +1,8 @@
+
 import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { HeroContextProvider } from "@/utils/contextProvider";
+import Script from "next/script";
 const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
@@ -11,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={`${roboto.className} `}>
         <HeroContextProvider>{children}</HeroContextProvider>
       </body>
     </html>
