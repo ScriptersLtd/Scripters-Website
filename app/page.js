@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import $ from "jquery"; // Import jQuery
 import Test from "@/components/Test";
 import Menu from "@/components/Menu";
+import { Features } from "@/components/Features";
 
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Test />
+        <Features />
       </div>
     </>
   );

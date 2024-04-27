@@ -22,7 +22,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex justify-end items-center bg-neutral-900 p-10">
+    <div className="flex justify-end items-center  p-10">
       {!isVisible && (
         <>
           <LayoutGroup>

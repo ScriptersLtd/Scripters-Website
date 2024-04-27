@@ -61,7 +61,7 @@ const Hero = () => {
 
   const {  isVisible,  setIsVisible } = useHeroContext();
   return (
-    <div className="panel relative min-h-[100vh] " data-color="black">
+    <div className="panel relative h-[120vh] w-[100vw] overflow-hidden" data-color="black">
       <div className="flex justify-between pt-44 px-32">
           <Socials />
           <motion.p

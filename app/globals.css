@@ -54,9 +54,6 @@ body {
 .blinking_text {
     animation: blink 1.5s linear infinite; ;
 }
-.panel{
-    min-height: 100vh;
-}
 
 .color-black {
     background-color: rgb(23 23 23);
