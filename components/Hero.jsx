@@ -38,7 +38,7 @@ const TagLine = ({ spacedTitle, isVisible, delay }) => {
     <div className="marquee mt-44">
       <motion.p
         ref={scope}
-        className={`p1 text-neutral-100 text-[170px] whitespace-nowrap`}
+        className={`p1 text-neutral-100 text-[170px] whitespace-nowrap tracking-tighter`}
       >
         {[...spacedTitle].map((letter, index) => (
           <motion.span
@@ -50,7 +50,7 @@ const TagLine = ({ spacedTitle, isVisible, delay }) => {
           </motion.span>
         ))}
       </motion.p>
-      <p className="p2 text-neutral-100 text-[170px] whitespace-nowrap">
+      <p className="p2 text-neutral-100 text-[170px] whitespace-nowrap tracking-tighter">
         We The Sagacious
       </p>
     </div>
@@ -61,7 +61,7 @@ const Hero = () => {
 
   const {  isVisible,  setIsVisible } = useHeroContext();
   return (
-    <div className="panel relative h-[120vh] w-[100vw] overflow-hidden" data-color="black">
+    <div className="panel relative h-[120vh] w-[100vw] overflow-hiddenx" data-color="black">
       <div className="flex justify-between pt-44 px-32">
           <Socials />
           <motion.p

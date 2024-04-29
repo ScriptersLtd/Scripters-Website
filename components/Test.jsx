@@ -30,7 +30,6 @@ const Test = () => {
       data-color="white"
       ref={ref}
     >
-      <BackgroundBeams/>
       <LayoutGroup>
         {!isLoaded && (
           <motion.img

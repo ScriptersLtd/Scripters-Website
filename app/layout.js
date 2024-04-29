@@ -3,6 +3,7 @@ import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { HeroContextProvider } from "@/utils/contextProvider";
 import Script from "next/script";
+import SmoothScrolling from "@/components/SmoothScrolling";
 const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${roboto.className} `}>
+        <SmoothScrolling>
         <HeroContextProvider>{children}</HeroContextProvider>
+        </SmoothScrolling>
       </body>
     </html>
   );
