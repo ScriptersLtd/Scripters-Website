@@ -1,23 +1,10 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import { useHeroContext } from "@/utils/contextProvider";
 import { cascadia } from "@/utils/cascadia";
 
-const draw = {
-  hidden: { pathLength: 0, opacity: 0 },
-  visible: (i) => {
-    const delay = 1 + i * 0.5;
-    return {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-        opacity: { delay, duration: 0.01 },
-      },
-    };
-  },
-};
-const transition = { duration: 2, yoyo: Infinity, ease: "easeInOut" };
+
+const transition = { duration: 1.5, yoyo: Infinity,  easeInOut };
 
 const Menu = () => {
   const { isOpen } = useHeroContext();
@@ -50,13 +37,26 @@ const Menu = () => {
                 <div className="flex gap-x-3 justify-start items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 30 30" width="50px" height="50px"
+                    viewBox="0 0 71.9 67.8"
+                    width="50px"
+                    height="50px"
                   >
                     <motion.path
-                      d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"
-                     
+                      d="M47.2,60H21.3A12.5,12.5,0,0,1,8.7,47.5V22.3A12.5,12.5,0,0,1,21.3,9.8H47.2A12.5,12.5,0,0,1,59.7,22.3V47.5A12.5,12.5,0,0,1,47.2,60Z"
                       stroke="#ffffff"
-                      strokeWidth={1}
+                      strokeWidth={3}
+                      fill={"transparent"}
+                      className={"transition-all"}
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      whileHover={{pathLength: 0}}
+                      transition={transition}
+                    />
+                    <motion.path
+                      d="M38.3,26.4a2,2,0,0,1,1.4-.6h5V18.3H37.8a10.9,10.9,0,0,0-5.6,1.1,7,7,0,0,0-2.8,2.5,5.6,5.6,0,0,0-1,2.7,14.9,14.9,0,0,0-.1,1.7v5.8H23.7v7.1h4.6V58.9A23.5,23.5,0,0,0,35.4,60h2.2V39.2h6.3l.3-2.2.3-2.2c.1-.9.1-1.8.2-2.7H37.6V27.4A1.5,1.5,0,0,1,38.3,26.4Z"
+                      stroke="#ffffff"
+                      strokeWidth={3}
                       fill={"transparent"}
                       className={"transition-all"}
                       strokeLinecap="round"
@@ -67,12 +67,17 @@ const Menu = () => {
                   </svg>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 50 50" width="40px" height="40px"                  >
+              height={50}
+              width={50}
+                    viewBox="0 0 71.87 67.76"
+                    fill="transparent"
+                 
+                    // style="enable-background:new 0 0 69.88 68.82;"
+                  >
                     <motion.path
-                      d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"
-                      
+                      d="M48.32,60.05H22.41A12.53,12.53,0,0,1,9.88,47.52V22.28A12.53,12.53,0,0,1,22.41,9.75H48.32A12.53,12.53,0,0,1,60.85,22.28V47.52A12.53,12.53,0,0,1,48.32,60.05ZM23.88,34.74A11.65,11.65,0,1,0,35.53,23.08,11.65,11.65,0,0,0,23.88,34.74ZM49,19.63a.5.5,0,0,0,.5.5.5.5,0,0,0,.5-.5.51.51,0,0,0-.5-.5A.5.5,0,0,0,49,19.63Z"
                       stroke="#ffffff"
-                      strokeWidth={2}
+                      strokeWidth={3}
                       fill={"#transparent"}
                       className={"transition-all"}
                       strokeLinecap="round"
@@ -83,16 +88,56 @@ const Menu = () => {
                   </svg>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 80 80" width="50px" height="50px"
+                    viewBox="0 0 71.9 67.8"
+                    width="50px"
+                    height="50px"
                   >
                     <motion.path
-                      d="M 15 9 C 12.25 9 10 11.25 10 14 L 10 64 C 10 66.75 12.25 69 15 69 L 65 69 C 67.75 69 70 66.75 70 64 L 70 14 C 70 11.25 67.75 9 65 9 Z M 15 11 L 65 11 C 66.667969 11 68 12.332031 68 14 L 68 64 C 68 65.667969 66.667969 67 65 67 L 15 67 C 13.332031 67 12 65.667969 12 64 L 12 14 C 12 12.332031 13.332031 11 15 11 Z M 23.902344 16.984375 C 20.601563 16.984375 17.90625 19.679688 17.90625 22.972656 C 17.90625 26.269531 20.601563 28.964844 23.902344 28.964844 C 27.195313 28.964844 29.886719 26.269531 29.886719 22.972656 C 29.886719 19.679688 27.195313 16.984375 23.902344 16.984375 Z M 36 17 C 35.449219 17 35 17.449219 35 18 C 35 18.550781 35.449219 19 36 19 C 36.550781 19 37 18.550781 37 18 C 37 17.449219 36.550781 17 36 17 Z M 40 17 C 39.449219 17 39 17.449219 39 18 C 39 18.550781 39.449219 19 40 19 C 40.550781 19 41 18.550781 41 18 C 41 17.449219 40.550781 17 40 17 Z M 44 17 C 43.449219 17 43 17.449219 43 18 C 43 18.550781 43.449219 19 44 19 C 44.550781 19 45 18.550781 45 18 C 45 17.449219 44.550781 17 44 17 Z M 48 17 C 47.449219 17 47 17.449219 47 18 C 47 18.550781 47.449219 19 48 19 C 48.550781 19 49 18.550781 49 18 C 49 17.449219 48.550781 17 48 17 Z M 52 17 C 51.449219 17 51 17.449219 51 18 C 51 18.550781 51.449219 19 52 19 C 52.550781 19 53 18.550781 53 18 C 53 17.449219 52.550781 17 52 17 Z M 56 17 C 55.449219 17 55 17.449219 55 18 C 55 18.550781 55.449219 19 56 19 C 56.550781 19 57 18.550781 57 18 C 57 17.449219 56.550781 17 56 17 Z M 60 17 C 59.449219 17 59 17.449219 59 18 C 59 18.550781 59.449219 19 60 19 C 60.550781 19 61 18.550781 61 18 C 61 17.449219 60.550781 17 60 17 Z M 23.902344 18.984375 C 26.109375 18.984375 27.886719 20.761719 27.886719 22.972656 C 27.886719 25.1875 26.109375 26.964844 23.902344 26.964844 C 21.679688 26.964844 19.90625 25.1875 19.90625 22.972656 C 19.90625 20.761719 21.679688 18.984375 23.902344 18.984375 Z M 50.101563 30.058594 C 46.9375 30.058594 44.507813 31.289063 42.84375 32.867188 L 42.84375 30.746094 L 32.597656 30.746094 L 32.597656 60.421875 L 43.191406 60.421875 L 43.191406 45.734375 C 43.191406 43.992188 43.390625 42.359375 43.96875 41.308594 C 44.550781 40.253906 45.375 39.625 47.351563 39.625 C 49.246094 39.625 49.851563 40.289063 50.3125 41.453125 C 50.773438 42.621094 50.824219 44.363281 50.824219 45.960938 L 50.824219 60.421875 L 60.421875 60.421875 L 60.421875 58.421875 L 61.421875 59.421875 L 61.421875 44.242188 C 61.421875 40.441406 61.046875 36.972656 59.375 34.324219 C 57.703125 31.671875 54.675781 30.058594 50.101563 30.058594 Z M 18.59375 30.746094 L 18.59375 60.421875 L 29.203125 60.421875 L 29.203125 30.746094 Z M 50.101563 32.058594 C 54.238281 32.058594 56.371094 33.308594 57.683594 35.390625 C 58.996094 37.46875 59.421875 40.585938 59.421875 44.242188 L 59.421875 58.421875 L 52.824219 58.421875 L 52.824219 45.960938 C 52.824219 44.351563 52.84375 42.417969 52.171875 40.71875 C 51.503906 39.023438 49.871094 37.625 47.351563 37.625 C 44.851563 37.625 43.097656 38.742188 42.21875 40.34375 C 41.339844 41.941406 41.191406 43.863281 41.191406 45.734375 L 41.191406 58.421875 L 34.597656 58.421875 L 34.597656 32.746094 L 40.84375 32.746094 L 40.84375 36.527344 L 42.566406 36.527344 L 42.847656 35.996094 C 43.820313 34.15625 46.28125 32.058594 50.101563 32.058594 Z M 20.59375 32.746094 L 27.203125 32.746094 L 27.203125 58.421875 L 20.59375 58.421875 Z"
-                     
+                      d="M51.4,60H25.5A12.5,12.5,0,0,1,12.9,47.5V22.3A12.5,12.5,0,0,1,25.5,9.8H51.4A12.5,12.5,0,0,1,63.9,22.3V47.5A12.5,12.5,0,0,1,51.4,60"
+                      stroke="#ffffff"
+                      strokeWidth={2.5}
+                      fill={"transparent"}
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      whileHover={{pathLength:0 }}
+                      transition={transition}
+                    />
+                    <motion.path
+                      d="M40.4,32.4h0Z"
                       stroke="#ffffff"
                       strokeWidth={2}
                       fill={"transparent"}
-                      whileHover={{ fill: "blue" }}
-                      className={"transition-all"}
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={transition}
+                    />
+                    <motion.path
+                      d="M29.9,22.8a3.8,3.8,0,0,1-4,3.7h-.1a3.7,3.7,0,1,1,.1-7.4A3.8,3.8,0,0,1,29.9,22.8Z"
+                      stroke="#ffffff"
+                      strokeWidth={2}
+                      fill={"transparent"}
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={transition}
+                    />
+                    <motion.path
+                      d="M54.9,38.4V50.7H47.8V39.3c0-2.9-1-4.8-3.5-4.8A3.9,3.9,0,0,0,40.6,37a5,5,0,0,0-.2,1.8V50.7H33.3s.1-19.3,0-21.3h7.1v3h0a6.9,6.9,0,0,1,6.4-3.5C51.4,28.9,54.9,31.9,54.9,38.4Z"
+                      stroke="#ffffff"
+                      strokeWidth={2}
+                      fill={"transparent"}
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={transition}
+                    />
+                    <motion.path
+                      d="M22.3,29.4V50.7h7.1V29.4Z"
+                      stroke="#ffffff"
+                      strokeWidth={2}
+                      fill={"transparent"}
                       strokeLinecap="round"
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
@@ -101,16 +146,48 @@ const Menu = () => {
                   </svg>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50"
+                    x="0px"
+                    y="0px"
+                    height={50}
+                    width={50}
+                   fill="transparent"
+                    viewBox="0 0 71.9 67.8"
                   >
                     <motion.path
-                      d="M 11 4 C 7.1456661 4 4 7.1456661 4 11 L 4 39 C 4 42.854334 7.1456661 46 11 46 L 39 46 C 42.854334 46 46 42.854334 46 39 L 46 11 C 46 7.1456661 42.854334 4 39 4 L 11 4 z M 11 6 L 39 6 C 41.773666 6 44 8.2263339 44 11 L 44 39 C 44 41.773666 41.773666 44 39 44 L 11 44 C 8.2263339 44 6 41.773666 6 39 L 6 11 C 6 8.2263339 8.2263339 6 11 6 z M 13.085938 13 L 22.308594 26.103516 L 13 37 L 15.5 37 L 23.4375 27.707031 L 29.976562 37 L 37.914062 37 L 27.789062 22.613281 L 36 13 L 33.5 13 L 26.660156 21.009766 L 21.023438 13 L 13.085938 13 z M 16.914062 15 L 19.978516 15 L 34.085938 35 L 31.021484 35 L 16.914062 15 z"
-                     
+                      d="M47.6,60H21.7A12.5,12.5,0,0,1,9.2,47.5V22.3A12.5,12.5,0,0,1,21.7,9.8H47.6A12.5,12.5,0,0,1,60.1,22.3V47.5A12.5,12.5,0,0,1,47.6,60Z"
                       stroke="#ffffff"
                       strokeWidth={2}
-                      fill={"#ffffff"}
-                      whileHover={{ fill: "blue" }}
-                      className={"transition-all"}
+                     
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={transition}
+                    />
+                    <motion.path
+                      d="M21.5,20.6h5L49.9,50H44.8Z"
+                      stroke="#ffffff"
+                      strokeWidth={2}
+                     
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={transition}
+                    />
+                    <motion.path
+                      d="M33.5,35l1.1,1.7L22.9,50.3H20.4Z"
+                      stroke="#ffffff"
+                      strokeWidth={2}
+                     
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={transition}
+                    />
+                    <motion.path
+                      d="M49.4,19.6,36.9,34.1l-1.2-1.7,11-12.8Z"
+                      stroke="#ffffff"
+                      strokeWidth={2}
+                     
                       strokeLinecap="round"
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
@@ -146,23 +223,3 @@ const Menu = () => {
 };
 
 export default Menu;
-{
-  /* <motion.svg
-                  width="300"
-                  height="300"
-                  viewBox="0 0 600 600"
-                  initial="hidden"
-                  animate="visible"
-                  >
-                    <motion.circle
-          cx="100"
-          cy="100"
-          r="80"
-          stroke="#ffffff"
-          fill=""
-          variants={draw}
-          custom={1}
-        />
-
-                  </motion.svg> */
-}

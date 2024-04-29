@@ -55,7 +55,7 @@ export const Features = () => {
       className="flex h-[500vh] flex-col items-center justify-start panel"
       data-color="black"
     >
-      <div className="sticky top-[16.7vh] h-[66.8vh] px-16 text-2xl leading-[1] text-white [&_p]:w-[45rem] [&_p]:max-w-[90%]">
+      <div className="sticky top-[16.7vh] h-[66.8vh] px-16 text-2xl leading-[1] text-white 2xl:[&_p]:w-[45rem]   [&_p]:max-w-[90%]">
         <motion.div style={{ x, scale }} className="relative h-full">
           <motion.figure style={{ opacity }} className="h-full">
             <img src="/main-screen.svg" className="h-full w-auto" />
