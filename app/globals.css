@@ -12,7 +12,7 @@
 }
 
 body {
-    transition: background-color 0.7s ease;
+    transition: background-color 0.6s ease;
   }
 
 .marquee {
@@ -21,7 +21,6 @@ body {
 .p1 {
     position: absolute;
     top: 25%;
-    width: 110%;
     height: 100%;
     margin: 0;
     line-height: 50px;
@@ -33,11 +32,12 @@ body {
     -webkit-animation: scroll-left 2s linear infinite;
     animation: scroll-left 12s linear infinite;
     animation-delay: 3s;
+    @apply w-[160%] sm:w-[140%] lg:w-[120%] xl:w-[110%]
 
 }
 .p2 {
     position: absolute;
-    width: 110%;
+    
     height: 100%;
     margin: 0;
     line-height: 50px;
@@ -49,8 +49,8 @@ body {
     -webkit-animation: scroll-left 2s linear infinite;
     animation: scroll-left 12s linear infinite;
     animation-delay: 9s;
+    @apply w-[160%] sm:w-[140%] lg:w-[120%] xl:w-[110%]
 }
-
 .blinking_text {
     animation: blink 1.5s linear infinite; ;
 }

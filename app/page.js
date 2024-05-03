@@ -10,27 +10,35 @@ import Test from "@/components/Test";
 import Menu from "@/components/Menu";
 import { Features } from "@/components/Features";
 import Services from "@/components/Services";
-
+import Portfolio from "@/components/Portfolio";
+import PortfolioHeading from "@/components/PortfolioHeading";
+import Contact from "@/components/Contact";
+import { StarsCanvas } from "@/components/canvas";
 
 export default function Home() {
   useEffect(() => {
-    $(window).scroll(function() {
-      var $window = $(window),
-        $body = $('body'),
-        $panel = $('.panel');
-    
-      var scroll = $window.scrollTop() + ($window.height() / 3);
-     
-      $panel.each(function () {
-        var $this = $(this);
-        if ($this.position().top <= scroll && $this.position().top + $this.height() > scroll) {
-          $body.removeClass(function (index, css) {
-            return (css.match (/(^|\s)color-\S+/g) || []).join(' ');
-          });
-          $body.addClass('color-' + $(this).data('color'));
-        }
-      });    
-    }).scroll();
+    $(window)
+      .scroll(function () {
+        var $window = $(window),
+          $body = $("body"),
+          $panel = $(".panel");
+
+        var scroll = $window.scrollTop() + $window.height() / 3;
+
+        $panel.each(function () {
+          var $this = $(this);
+          if (
+            $this.position().top <= scroll &&
+            $this.position().top + $this.height() > scroll
+          ) {
+            $body.removeClass(function (index, css) {
+              return (css.match(/(^|\s)color-\S+/g) || []).join(" ");
+            });
+            $body.addClass("color-" + $(this).data("color"));
+          }
+        });
+      })
+      .scroll();
   }, []);
   return (
     <>
@@ -40,7 +48,13 @@ export default function Home() {
         <Hero />
         <Test />
         <Services />
-        <Features />
+        <PortfolioHeading />
+        <Portfolio />
+        {/* <Features /> */}
+        <div className="relative h-screen">
+          <Contact />
+          <StarsCanvas />
+        </div>
       </div>
     </>
   );

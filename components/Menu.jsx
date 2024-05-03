@@ -21,18 +21,18 @@ const Menu = () => {
             transition={{ duration: 0.5 }}
             className="fixed bg-neutral-900 z-50 w-[100vw] flex justify-center auto items-center opacity-50"
           >
-            <div className="flex justify-center items-start  gap-x-44">
+            <div className="flex flex-col lg:flex-row gap-y-5 justify-center items-start  gap-x-44">
               <motion.div
-                className={`z-50  bg-neutral-900 text-neutral-100 ${cascadia.className} flex flex-col`}
+                className={`z-50  bg-neutral-900 text-neutral-100 ${cascadia.className} flex flex-col justify-center items-center`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <p className="text-neutral-100 text-[70px]">
+                <p className=" text-neutral-100 text-[30px] sm:text-[50px] lg:text-[70px] ">
                   <span>{":/Scripters>"}</span>
                   <span className="blinking_text">_</span>
                 </p>
-                <p className="py-3 text-lg">Connect With Us</p>
+                <p className="py-3 text-lg text-center ">Connect With Us</p>
 
                 <div className="flex gap-x-3 justify-start items-center">
                   <svg
@@ -205,7 +205,7 @@ const Menu = () => {
                   initial={{ opacity: 0, filter: "blur(5px)" }}
                   animate={{ opacity: 1, filter: "blur(0px)" }}
                   transition={{ duration: 1 }}
-                  className="flex flex-col gap-y-12 text-neutral-100 text-2xl"
+                  className="flex flex-col gap-y-5 text-neutral-100 text-2xl"
                 >
                   <motion.li className="listt">Home</motion.li>
                   <motion.li className="listt">Services</motion.li>

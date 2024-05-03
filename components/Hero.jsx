@@ -1,5 +1,4 @@
 "use client";
-import { cascadia } from "@/utils/cascadia";
 import {
   useAnimate,
   stagger,
@@ -35,10 +34,10 @@ function useTaglineAnimation(isVisible, delay) {
 const TagLine = ({ spacedTitle, isVisible, delay }) => {
   const scope = useTaglineAnimation(isVisible, delay);
   return (
-    <div className="marquee mt-44">
+    <div className="marquee mt-28 lg:mt-44">
       <motion.p
         ref={scope}
-        className={`p1 text-neutral-100 text-[170px] whitespace-nowrap tracking-tighter`}
+        className={`p1 text-neutral-100 text-[50px] sm:text-[70px] lg:text-[100px] xl:text-[120px] whitespace-nowrap`}
       >
         {[...spacedTitle].map((letter, index) => (
           <motion.span
@@ -50,7 +49,7 @@ const TagLine = ({ spacedTitle, isVisible, delay }) => {
           </motion.span>
         ))}
       </motion.p>
-      <p className="p2 text-neutral-100 text-[170px] whitespace-nowrap tracking-tighter">
+      <p className="p2 text-neutral-100 text-[50px] sm:text-[70px] lg:text-[100px] xl:text-[120px] whitespace-nowrap">
         We The Sagacious
       </p>
     </div>
@@ -61,14 +60,14 @@ const Hero = () => {
 
   const {  isVisible,  setIsVisible } = useHeroContext();
   return (
-    <div className="panel relative h-[120vh] w-[100vw] overflow-hiddenx" data-color="black">
-      <div className="flex justify-between pt-44 px-32">
+    <div className="panel relative h-[120vh] w-[100vw] overflow-hidden" data-color="black">
+      <div className="flex flex-col justify-between pt-20 px-4">
           <Socials />
           <motion.p
-            className="text-neutral-100 max-w-lg ml-auto my-auto"
+            className="text-neutral-100 max-w-lg mt-10 ml-auto my-auto"
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4, delay:3}}
+            transition={{ duration: 0.4, delay:7}}
           >
             sidfuh uasidfb iysabdf oibsadf bsaif bsiavn ioefb isnadpisbaei
             nsapdvn psaoen sanef pipisaefu nsaiebnc isaoe pisanef psane isnaf

@@ -26,7 +26,7 @@ const Test = () => {
 
   return (
     <div
-      className="w-full panel h-[500vh] relative"
+      className="w-full panel h-[500vh] relative px-12"
       data-color="white"
       ref={ref}
     >

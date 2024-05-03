@@ -22,13 +22,13 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex justify-end items-center  p-10">
+    <div className="flex justify-end items-center  h-12 w-full">
       {!isVisible && (
         <>
           <LayoutGroup>
             {!isLogoVisible && (
               <motion.div
-                className="absolute top-44 left-0 z-20"
+                className="absolute top-44 left-5 z-20"
                 transition={{ duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] }}
                 layoutId="logo-text"
               >
@@ -38,7 +38,7 @@ const Navbar = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, y: 100 }}
                     transition={{ duration: 0.2, delay: letter.delay }}
-                    className={`text-[150px] text-neutral-100 ${cascadia.className}`}
+                    className={`text-[40px] lg:text-[50px] xl:text-[150px] text-neutral-100 ${cascadia.className}`}
                   >
                     {letter.name}
                   </motion.span>
@@ -47,7 +47,7 @@ const Navbar = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1, y: 100 }}
                   transition={{ duration: 0.2, delay: 3.9 }}
-                  className={`text-[150px] text-neutral-100 ${cascadia.className}`}
+                  className={`text-[40px] text-neutral-100 ${cascadia.className}`}
                 >
                   _
                 </motion.span>
@@ -55,14 +55,14 @@ const Navbar = () => {
             )}
             {isLogoVisible && (
               <motion.div
-                className="absolute top-7 left-7 z-20"
+                className="absolute top-4 left-4 z-20"
                 transition={{ duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] }}
                 layoutId="logo-text"
               >
                 {name.map((letter, index) => (
                   <motion.span
                     key={index}
-                    className={`text-[50px] text-neutral-100 ${cascadia.className}`}
+                    className={`text-[25px] sm:text-[40px] lg:text-[50px] text-neutral-100 ${cascadia.className}`}
                   >
                     {letter.name}
                   </motion.span>
@@ -71,7 +71,7 @@ const Navbar = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1, y: 100 }}
                   transition={{ duration: 0.2, delay: 3.9 }}
-                  className={`text-[50px] text-neutral-100 blinking_text ${cascadia.className}`}
+                  className={`text-[25px] sm:text-[40px] lg:text-[50px] text-neutral-100 blinking_text ${cascadia.className}`}
                 >
                   _
                 </motion.span>
@@ -80,7 +80,7 @@ const Navbar = () => {
           </LayoutGroup>
         </>
       )}
-      <div className="flex justify-center items-center bg-neutral-100 rounded-full h-14 w-14 z-50 fixed"
+      <div className="flex justify-center items-center bg-neutral-100 rounded-full h-8 w-8 sm:h-12 sm:w-12 z-50 fixed right-4 top-4"
       onClick={() => setOpen(!isOpen)}>
         <MenuButton isOpen={isOpen}  />
       </div>
