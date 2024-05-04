@@ -63,7 +63,7 @@ const Test = () => {
         className="z-50 mx-auto  xl:text-lg 2xl:text-xl text-neutral-100 w-[85%] lg:w-[60%] xl:w-[40%]  sticky top-[610px]  md:top-[650px] leading-6"
         style={{ opacity: opacity1, y: position1 }}
       >
-        With our signature blend of creativity, expertise, and a whole lot of groovy flair, we've been setting the digital world on fire for years! Our stellar track record of 1000+ successful projects speaks volumes, reflecting the satisfaction of countless clients who have witnessed the impact of our services firsthand. Join us, and let's continue making waves together!
+        With our signature blend of creativity, expertise, and a whole lot of groovy flair, we`&apos;`ve been setting the digital world on fire for years! Our stellar track record of 1000+ successful projects speaks volumes, reflecting the satisfaction of countless clients who have witnessed the impact of our services firsthand. Join us, and let`&apos;`s continue making waves together!
       </motion.p>
       <motion.h2 className={`${cascadia.className} z-50 mx-auto text-2xl md:text-4xl lg:text-5xl xl:text-6xl w-[85%] lg:w-[60%] xl:w-[40%]  sticky top-[550px] text-lime-400  whitespace-nowrap`}
       style={{opacity:opacity2, x:position2}}
@@ -72,7 +72,7 @@ const Test = () => {
         className="mx-auto  xl:text-lg 2xl:text-xl z-50 text-neutral-100 w-[85%] lg:w-[60%] xl:w-[40%]  sticky top-[610px]  md:top-[650px] leading-6"
         style={{ opacity: opacity2, y: position2 }}
       >
-       At Scripters, we're not just creating digital solutions; we're building lasting relationships based on trust, transparency, and a shared vision for success. Therefore, our approach is deep-seated in collaboration and innovation. We believe that by combining fresh ideas with diverse perspectives and exploring new possibilities, we can achieve truly remarkable results. 
+       At Scripters, we`&apos;`re not just creating digital solutions; we`&apos;`re building lasting relationships based on trust, transparency, and a shared vision for success. Therefore, our approach is deep-seated in collaboration and innovation. We believe that by combining fresh ideas with diverse perspectives and exploring new possibilities, we can achieve truly remarkable results. 
       </motion.p>
     </div>
   );

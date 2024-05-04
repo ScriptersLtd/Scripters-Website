@@ -28,28 +28,24 @@ const Portfolio = () => {
     [0.1, 0.4, 0.7, 0.8],
     [0, 1, 1, 0]
   );
-  const scaleHeading = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.8],
-    [1, 10, 600]
-  );
+
   // const yHeading = useTransform(scrollYProgress,[0,0.8],["0%","700%"])
 
   const portfolioData1 = [
     {
-      name: "portfolio 1",
+      name: "Aura Furnish",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
       image: "/portfolio-1.jpg",
     },
     {
-      name: "portfolio 1",
+      name: "Verve Vorgue",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
       image: "/portfolio-2.jpg",
     },
     {
-      name: "portfolio 1",
+      name: "Habittracker",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
       image: "/portfolio-3.jpg",
@@ -57,19 +53,19 @@ const Portfolio = () => {
   ];
   const portfolioData2 = [
     {
-      name: "portfolio 4",
+      name: "Blaze Byte",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
       image: "/portfolio-4.jpg",
     },
     {
-      name: "portfolio 5",
+      name: "Stride Ride",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
       image: "/portfolio-5.jpg",
     },
     {
-      name: "portfolio 6",
+      name: "Vivara",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
       image: "/portfolio-6.jpg",
@@ -77,7 +73,7 @@ const Portfolio = () => {
   ];
   return (
     <div
-      className="flex flex-col justify-start xl:pb-44 panel bg-neutral-900 h-[630vh] xl:h-[400vh] relative"
+      className="flex flex-col justify-start xl:pb-44 panel bg-neutral-900 h-[550vh] xl:h-[400vh] relative"
       ref={refPortfolio}
       data-color="black"
     >
@@ -140,7 +136,9 @@ const PortfolioCard = ({ title, y, desc, image }) => {
         className=" -z-10 w-[800px] h-[500px] object-cover"
         alt="asd"
       />
-      <div className="text-4xl text-neutral-100">{title}</div>
+      <div className="text-4xl text-neutral-100">
+        <p className="text-center">{title}</p>
+        </div>
     </motion.div>
   );
 };
