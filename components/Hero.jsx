@@ -14,7 +14,6 @@ import Socials from "./Socials";
 const title = "We The Sagacious";
 const spacedTitle = title.replace(/\s/g, "\u00A0");
 
-
 function useTaglineAnimation(isVisible, delay) {
   const [scope, animate] = useAnimate();
   useEffect(() => {
@@ -57,28 +56,27 @@ const TagLine = ({ spacedTitle, isVisible, delay }) => {
 };
 
 const Hero = () => {
-
-  const {  isVisible,  setIsVisible } = useHeroContext();
+  const { isVisible, setIsVisible } = useHeroContext();
   return (
-    <div className="panel relative h-[120vh] w-[100vw] overflow-hidden" data-color="black">
+    <div
+      className="panel relative h-[120vh] w-[100vw] overflow-hidden"
+      data-color="black"
+    >
       <div className="flex flex-col justify-between pt-20 px-4">
-          <Socials />
-          <motion.p
-            className="text-neutral-100 max-w-lg mt-10 ml-auto my-auto"
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4, delay:7}}
-          >
-            sidfuh uasidfb iysabdf oibsadf bsaif bsiavn ioefb isnadpisbaei
-            nsapdvn psaoen sanef pipisaefu nsaiebnc isaoe pisanef psane isnaf
-          </motion.p>
-        </div>
+        <Socials />
+        <motion.p
+          className="text-neutral-100 max-w-lg mt-10 ml-auto my-auto"
+          initial={{ y: 80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 7 }}
+        >
+          Boost your digital presence with captivating logos, dynamic websites,
+          expert SEO, and engaging content. Scripters brings your vision to
+          life!
+        </motion.p>
+      </div>
 
-          <TagLine
-            spacedTitle={spacedTitle}
-            isVisible={isVisible}
-            delay={5}
-          />
+      <TagLine spacedTitle={spacedTitle} isVisible={isVisible} delay={5} />
       <LayoutGroup>
         <AnimatePresence>
           {isVisible && (
@@ -122,7 +120,6 @@ const Hero = () => {
               >
                 <Image src={"/image-3.jpg"} width={400} height={400} alt="as" />
               </motion.div>
-            
             </div>
           )}
         </AnimatePresence>

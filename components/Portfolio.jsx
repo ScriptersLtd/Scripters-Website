@@ -13,6 +13,7 @@ import { useMediaQuery } from "react-responsive";
 
 const Portfolio = () => {
   const refPortfolio = useRef();
+  const isSmallScreen = useMediaQuery({ maxWidth: 1280 });
   const { scrollYProgress } = useScroll({
     target: refPortfolio,
     offset: ["0 1", "1 0"],
@@ -36,37 +37,60 @@ const Portfolio = () => {
   );
   // const yHeading = useTransform(scrollYProgress,[0,0.8],["0%","700%"])
 
-  const portfolioData = [
+  const portfolioData1 = [
     {
       name: "portfolio 1",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
-      image: "/la-chance.jpg",
+      image: "/portfolio-1.jpg",
     },
     {
       name: "portfolio 1",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
-      image: "/la-chance.jpg",
+      image: "/portfolio-2.jpg",
     },
     {
       name: "portfolio 1",
       desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
 
-      image: "/la-chance.jpg",
+      image: "/portfolio-3.jpg",
+    },
+  ];
+  const portfolioData2 = [
+    {
+      name: "portfolio 4",
+      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
+
+      image: "/portfolio-4.jpg",
+    },
+    {
+      name: "portfolio 5",
+      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
+
+      image: "/portfolio-5.jpg",
+    },
+    {
+      name: "portfolio 6",
+      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
+
+      image: "/portfolio-6.jpg",
     },
   ];
   return (
     <div
-      className="flex flex-col justify-start pb-44 panel bg-neutral-900 h-[400vh] relative"
+      className="flex flex-col justify-start xl:pb-44 panel bg-neutral-900 h-[630vh] xl:h-[400vh] relative"
       ref={refPortfolio}
       data-color="black"
     >
       <motion.div
-        className="flex flex-col sticky top-[10vh] "
-        style={{ opacity: opacity1, y: y1 }}
+        className="flex flex-col xl:flex-row xl:sticky xl:top-[10vh] h-full  max-w-lg mx-auto xl:max-w-none"
+        style={{
+          opacity: isSmallScreen ? 1 : opacity1,
+          y: isSmallScreen ? "" : y1,
+        }}
       >
-        {portfolioData.map((portfolio) => {
+        {portfolioData1.map((portfolio) => {
           return (
             <>
               <PortfolioCard
@@ -80,10 +104,10 @@ const Portfolio = () => {
       </motion.div>
 
       <motion.div
-        className="flex flex-col sticky top-[120vh]"
-        style={{ y: y2, opacity: opacity2 }}
+        className="flex flex-col xl:flex-row xl:sticky xl:top-[120vh] max-w-lg mx-auto xl:max-w-none"
+        style={{ y:isSmallScreen? "" :y2, opacity:isSmallScreen? 1: opacity2 }}
       >
-        {portfolioData.map((portfolio) => {
+        {portfolioData2.map((portfolio) => {
           return (
             <>
               <PortfolioCard
@@ -116,11 +140,10 @@ const PortfolioCard = ({ title, y, desc, image }) => {
         src={image}
         width={800}
         height={800}
-        className=" -z-10"
+        className=" -z-10 w-[800px] h-[500px] object-cover"
         alt="asd"
       />
       <div className="text-4xl text-neutral-100">{title}</div>
-      <div className="bg-neutral-900 z-10 opacity-0 group-hover:opacity-3z10 transition-all absolute left-0 top-0 w-full h-full"></div>
     </motion.div>
   );
 };

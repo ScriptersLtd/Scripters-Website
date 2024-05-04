@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { cascadia } from "@/utils/cascadia";
 import {
   useScroll,
@@ -11,11 +11,9 @@ import Image from "next/image";
 import { useEffect, useReducer, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 
-
-
 const PortfolioHeading = () => {
   const isMediumScreen = useMediaQuery({ maxWidth: 768 });
-  const isLargeScreen = useMediaQuery({ minWidth:767, maxWidth: 1024 });
+  const isLargeScreen = useMediaQuery({ minWidth: 767, maxWidth: 1024 });
 
   const refPortfolioHeading = useRef();
   const { scrollYProgress } = useScroll({
@@ -47,8 +45,7 @@ const PortfolioHeading = () => {
     scrollYProgress,
     [0, 0.4, 0.6, 1],
     ["0%", "1000%", "1400%", "2050%"]
-  )
-
+  );
 
   const opacity = useTransform(scrollYProgress, [1.1, 1.3], [1, 0]);
 
@@ -61,9 +58,13 @@ const PortfolioHeading = () => {
       <motion.h2
         className={`text-[40px] md:text-[70px]  lg:text-[100px] whitespace-nowrap 2xl:text-[100px] text-center sticky top-[27rem] sm:top-[] 2xl:top-[16rem] text-neutral-900 font-bold select-none `}
         style={{
-          scale: isMediumScreen ? smallScaleHeading  : scaleHeading,
-          y: isMediumScreen ? smallyHeading : (isLargeScreen ? largeyHeading : yHeading),
-          opacity:  opacity,
+          scale: isMediumScreen ? smallScaleHeading : scaleHeading,
+          y: isMediumScreen
+            ? smallyHeading
+            : isLargeScreen
+            ? largeyHeading
+            : yHeading,
+          opacity: opacity,
         }}
       >
         OUR PORTFOLIO

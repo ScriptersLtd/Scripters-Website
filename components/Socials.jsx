@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useHeroContext } from "@/utils/contextProvider";
 import { useState, useEffect } from "react";
 import { useAnimate, stagger } from "framer-motion";
+import Image from "next/image";
 const codeTitle = "1|print(scripters_socials)";
 
 function useCodeAnimation(isBoxVisible) {
@@ -65,7 +66,7 @@ const CodeBox = () => {
     <>
       {!isVisible && (
         <motion.div
-          className="w-96 h-36 bg-neutral-800 rounded-sm py-3"
+          className="w-[360px] h-36 bg-neutral-800 rounded-sm py-3"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           onAnimationComplete={() => setIsBoxVisible(true)}
@@ -97,13 +98,34 @@ const CodeBox = () => {
           <div className="h-[1px] w-full bg-cyan-700" />
           {isCodeComplete && (
             <motion.div ref={iconScope} className="flex px-3 pt-3 gap-x-2">
-              {[1, 2, 3, 4].map((icon, index) => (
+              
                 <motion.div
-                  key={index}
-                  className="rounded-full w-8 h-8 bg-neutral-200"
+                  className="rounded-full w-8 h-8 "
                   initial={{ opacity: 0, y: -10 }}
-                ></motion.div>
-              ))}
+                >
+                  <Image  src={"/facebook.png"} alt="Scripters facebook" height={100} width={100} className="object-contain" priority />
+                </motion.div>
+                <motion.div
+                  className="rounded-full w-8 h-8 "
+                  initial={{ opacity: 0, y: -10 }}
+                >
+                  <Image src={"/insta.png"} alt="Scripters Instagram" height={100} width={100} className="object-contain" priority />
+                </motion.div>
+                <motion.div
+                 
+                  className="rounded-full w-8 h-8 "
+                  initial={{ opacity: 0, y: -10 }}
+                >
+                  <Image src={"/linkedin.png"} alt="Scripters Linkedin" height={100} width={100} className="object-contain" priority />
+                </motion.div>
+                <motion.div
+                 
+                  className="rounded-full w-8 h-8 "
+                  initial={{ opacity: 0, y: -10 }}
+                >
+                  <Image src={"/twitter.png"} alt="Scripters twitter" height={100} width={100} className="object-contain" priority />
+                </motion.div>
+              
             </motion.div>
           )}
         </motion.div>

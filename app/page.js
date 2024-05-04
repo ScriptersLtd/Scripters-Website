@@ -14,8 +14,15 @@ import Portfolio from "@/components/Portfolio";
 import PortfolioHeading from "@/components/PortfolioHeading";
 import Contact from "@/components/Contact";
 import { StarsCanvas } from "@/components/canvas";
+import Footer from "@/components/Footer";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const { pathname } = useRouter();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   useEffect(() => {
     $(window)
       .scroll(function () {
@@ -50,10 +57,10 @@ export default function Home() {
         <Services />
         <PortfolioHeading />
         <Portfolio />
-        {/* <Features /> */}
-        <div className="relative h-screen">
+        <div className="relative h-[900px]">
           <Contact />
           <StarsCanvas />
+          <Footer />
         </div>
       </div>
     </>
