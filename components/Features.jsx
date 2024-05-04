@@ -59,16 +59,16 @@ export const Features = () => {
       <div className="sticky top-[16.7vh] h-[66.8vh] text-xl leading-[1.5] text-white 2xl:[&_p]:w-[35rem]   [&_p]:max-w-[90%] overflow-hidden">
         <motion.div style={{ x, scale }} className="relative h-full ">
           <motion.figure style={{ opacity }} className="h-full">
-            <Image alt="Scripters Assets" src="/main-screen.svg" className="h-full w-auto" />
+            <Image height={900} width={900} alt="Scripters Assets" src="/main-screen.svg" className="h-full w-auto" />
           </motion.figure>
           <motion.figure style={{ opacity: text2Opacity }}>
-            <Image alt="Scripters Assets"
+            <Image  height={100} width={100} alt="Scripters Assets"
               src="/command-palette.svg"
               className="absolute inset-0 h-full w-auto"
             />
           </motion.figure>
           <motion.figure style={{ opacity: text3Opacity }}>
-            <Image alt="Scripters Assets"
+            <Image  height={100} width={100} alt="Scripters Assets"
               src="/devtools.svg"
               className="absolute inset-0 h-full w-auto"
             />
