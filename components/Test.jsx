@@ -54,7 +54,7 @@ const Test = () => {
               layoutId="main-image-1"
               width={600}
               height={400}
-              className={`sticky left-24 top-0 w-full h-[500px] object-cover`}
+              className={`sticky left-24 top-0 w-full h-[300px] lg:h-[500px] object-cover`}
             />
             </div>
         )}

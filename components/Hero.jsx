@@ -106,9 +106,9 @@ const Hero = () => {
                 transition={{ duration: 3, ease: "anticipate", delay: 0.4 }}
                 exit={{ opacity: 0, y: -500 }}
                 onAnimationComplete={() => setIsVisible(false)}
-                className="absolute top-12 left-36 overflow-hidden"
+                className="absolute top-12 left-36 overflow-hidden "
               >
-                <Image src={"/image-3.jpg"} width={400} height={400} alt="as" />
+                <Image src={"/image-3.jpg"} width={400} height={400} alt="as" className="hidden lg:block" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 500 }}
@@ -116,9 +116,9 @@ const Hero = () => {
                 transition={{ duration: 3, ease: "anticipate", delay: 0.6 }}
                 exit={{ opacity: 0, y: -500 }}
                 onAnimationComplete={() => setIsVisible(false)}
-                className="absolute top-96 right-[15%] overflow-hidden"
+                className="absolute top-96 right-[15%] overflow-hidden "
               >
-                <Image src={"/image-3.jpg"} width={400} height={400} alt="as" />
+                <Image src={"/image-3.jpg"} width={400} height={400} alt="as" className="hidden lg:block" />
               </motion.div>
             </div>
           )}
