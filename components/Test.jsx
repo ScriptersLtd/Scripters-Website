@@ -1,15 +1,12 @@
 "use client";
-import { useHeroContext } from "@/utils/contextProvider";
 import {
   LayoutGroup,
   motion,
-  useAnimation,
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { cascadia } from "@/utils/cascadia";
-import { BackgroundBeams } from "./ui/BackgroundBeams";
 import { useMediaQuery } from "react-responsive";
 
 const Test = () => {

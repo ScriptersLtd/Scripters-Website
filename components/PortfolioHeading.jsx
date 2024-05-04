@@ -1,14 +1,11 @@
 "use client";
-import { cascadia } from "@/utils/cascadia";
 import {
   useScroll,
   motion,
   useTransform,
-  useMotionValue,
-  useInView,
+
 } from "framer-motion";
-import Image from "next/image";
-import { useEffect, useReducer, useRef } from "react";
+import {  useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 
 const PortfolioHeading = () => {

@@ -1,11 +1,9 @@
 "use client";
-import { cascadia } from "@/utils/cascadia";
 import {
   useScroll,
   motion,
   useTransform,
-  useMotionValue,
-  useInView,
+
 } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
@@ -95,6 +93,8 @@ const Portfolio = () => {
             <>
               <PortfolioCard
                 title={portfolio.name}
+                key={portfolio.name}
+
                 desc={portfolio.desc}
                 image={portfolio.image}
               />
@@ -112,6 +112,7 @@ const Portfolio = () => {
             <>
               <PortfolioCard
                 title={portfolio.name}
+                key={portfolio.name}
                 desc={portfolio.desc}
                 image={portfolio.image}
               />
@@ -125,11 +126,7 @@ const Portfolio = () => {
 
 const PortfolioCard = ({ title, y, desc, image }) => {
   const refPortfolioCard = useRef();
-  const { scrollYProgress } = useScroll({
-    target: refPortfolioCard,
-    offset: ["0 0", "1 0"],
-  });
-  const headingY = useTransform(scrollYProgress, [0, "0%"], [1, "-20%"]);
+ 
 
   return (
     <motion.div

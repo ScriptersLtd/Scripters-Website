@@ -52,11 +52,11 @@ export const Features = () => {
   return (
     <section
       ref={targetRef}
-      className="flex h-[500vh] flex-col items-center justify-start panel"
+      className="flex  px-3 h-[500vh] flex-col items-center justify-start panel "
       data-color="black"
     >
-      <div className="sticky top-[16.7vh] h-[66.8vh] px-16 text-2xl leading-[1] text-white 2xl:[&_p]:w-[45rem]   [&_p]:max-w-[90%]">
-        <motion.div style={{ x, scale }} className="relative h-full">
+      <div className="sticky top-[16.7vh] h-[66.8vh] text-xl leading-[1.5] text-white 2xl:[&_p]:w-[35rem]   [&_p]:max-w-[90%] overflow-hidden">
+        <motion.div style={{ x, scale }} className="relative h-full ">
           <motion.figure style={{ opacity }} className="h-full">
             <img src="/main-screen.svg" className="h-full w-auto" />
           </motion.figure>
@@ -80,10 +80,9 @@ export const Features = () => {
           }}
           className="translate-y-centered-offset absolute top-1/2 left-0"
         >
-          <span className="text-primary">Preconfigured environments</span>
+          <span className="text-purple-400">Lightning-Fast Speed</span>
           <br />
-          We detect your environment so you don't need to fiddle with
-          configuration files.
+          Our websites are meticulously optimized for speed, ensuring swift loading times and seamless user experiences. Say goodbye to frustrating delays and hello to instant gratification for your visitors.
         </motion.p>
         <motion.p
           style={{
@@ -92,9 +91,9 @@ export const Features = () => {
           }}
           className="translate-y-centered-offset absolute top-1/2 left-0"
         >
-          <span className="text-primary">Command Pallete</span>
+          <span className="text-rose-500">Efficiency Redefined</span>
           <br />
-          Access and complete any action in seconds with the command palette.
+          Behind the sleek design lies a robust framework engineered for efficiency. Our websites are crafted with clean code and smart architecture, maximizing performance while minimizing resource consumption.
         </motion.p>
         <motion.p
           style={{
@@ -103,10 +102,9 @@ export const Features = () => {
           }}
           className="translate-y-centered-offset absolute top-1/2 left-0"
         >
-          <span className="text-primary">Devtools</span>
+          <span className="text-lime-500">Aesthetic Excellence</span>
           <br />
-          We've bundled useful tools to help you get your work done faster and
-          more efficiently.
+          Beauty meets functionality in every pixel of our designs. From captivating visuals to intuitive layouts, we prioritize aesthetics without compromising usability. 
         </motion.p>
       </div>
     </section>

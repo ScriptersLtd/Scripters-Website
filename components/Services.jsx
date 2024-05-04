@@ -1,14 +1,13 @@
 "use client";
 import { useMediaQuery } from "react-responsive";
-import Image from "next/image";
 import {
-  LayoutGroup,
+  
   motion,
-  useAnimation,
+
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import {  useRef } from "react";
 import { cascadia } from "@/utils/cascadia";
 
 const Services = () => {
