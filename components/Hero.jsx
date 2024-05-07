@@ -59,7 +59,7 @@ const Hero = () => {
   const { isVisible, setIsVisible } = useHeroContext();
   return (
     <div
-      className="panel relative h-[120vh] w-[100vw] overflow-hidden"
+      className="panel relative h-[45rem] w-[100vw] overflow-hidden"
       data-color="black"
     >
       <div className="flex flex-col justify-between pt-20 px-4">

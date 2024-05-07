@@ -19,7 +19,7 @@ const Portfolio = () => {
     offset: ["0 1", "1 0"],
   });
   const y1 = useTransform(scrollYProgress, [0, 0.4], ["20%", "0%"]);
-  const y2 = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+  const y2 = useTransform(scrollYProgress, [0,0.7,0.8, 1], ["0%","-70%","-80%", "-100%"]);
   const opacity1 = useTransform(
     scrollYProgress,
     [0, 0.1, 0.3, 0.4],
@@ -30,6 +30,17 @@ const Portfolio = () => {
     [0.1, 0.4, 0.7, 0.8],
     [0, 1, 1, 0]
   );
+  const smallOpacity1 =useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    [0, 1]
+  );
+  const smallOpacity2 =useTransform(
+    scrollYProgress,
+    [0.4, 0.5],
+    [0, 1]
+  );
+
   const scaleHeading = useTransform(
     scrollYProgress,
     [0, 0.3, 0.8],
@@ -79,15 +90,15 @@ const Portfolio = () => {
   ];
   return (
     <div
-      className="flex flex-col justify-start items-start xl:pb-44 panel bg-neutral-900 h-[550vh] xl:h-[400vh] relative"
+      className="flex flex-col justify-start items-start xl:pb-44 panel bg-neutral-900  xl:h-[400vh] relative"
       ref={refPortfolio}
       data-color="black"
     >
       <motion.div
-        className="flex flex-col xl:flex-row xl:sticky xl:top-[10vh] h-full  max-w-lg mx-auto xl:max-w-none"
+        className="flex flex-col xl:flex-row xl:sticky xl:top-[10vh]  max-w-lg mx-auto xl:max-w-none"
         style={{
-          opacity: isSmallScreen ? 1 : opacity1,
-          y: isSmallScreen ? "" : y1,
+          opacity: isSmallScreen ? smallOpacity1 : opacity1,
+          y: isSmallScreen ? 1 : y1,
         }}
       >
         {portfolioData1.map((portfolio) => {
@@ -105,7 +116,7 @@ const Portfolio = () => {
 
       <motion.div
         className="flex flex-col xl:flex-row xl:sticky xl:top-[120vh] max-w-lg mx-auto xl:max-w-none"
-        style={{ y:isSmallScreen? "" :y2, opacity:isSmallScreen? 1: opacity2 }}
+        style={{ y:isSmallScreen? 1 :y2,  opacity:isSmallScreen? smallOpacity2: opacity2 }}
       >
         {portfolioData2.map((portfolio) => {
           return (
