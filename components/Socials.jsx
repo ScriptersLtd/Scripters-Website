@@ -66,7 +66,7 @@ const CodeBox = () => {
     <>
       {!isVisible && (
         <motion.div
-          className="w-[360px] h-36 bg-neutral-800 rounded-sm py-3"
+          className="sm:w-[360px] h-36 bg-neutral-800 rounded-sm py-3"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           onAnimationComplete={() => setIsBoxVisible(true)}

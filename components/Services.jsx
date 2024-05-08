@@ -55,7 +55,7 @@ const Services = () => {
       data-color="white"
       ref={ref}
     >
-      <h2 className={`${cascadia.className} text-neutral-900 2xl:text-7xl xl:text-6xl md:text-5xl text-4xl font-bold pb-16`}>{"<"}What we do?{" />"}</h2>
+      <h2 className={`${cascadia.className} text-neutral-900 2xl:text-7xl xl:text-6xl md:text-5xl text-4xl font-bold pb-16`}>What we do?</h2>
       <div className="flex flex-col xl:flex-row w-full items-center justify-between px-4 mx-2 pb-6 mb-6 xl:px-28 xl:mx-6 xl:pb-20 xl:mb-20  border-neutral-900 border-b-2">
         <h3 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold pb-2">
           Brand Identity
