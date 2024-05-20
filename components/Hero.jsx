@@ -37,7 +37,7 @@ const TagLine = ({ spacedTitle, isVisible, delay }) => {
     <div className="marquee mt-28 lg:mt-44 relative z-10 uppercase">
       <motion.p
         ref={scope}
-        className={`p1 ${Lexendfont.className} text-neutral-100 text-[70px] lg:text-[100px] xl:text-[180px] 2xl:text-[230px] font-bold whitespace-nowrap`}
+        className={`p1 ${Lexendfont.className} text-neutral-100 text-[70px] lg:text-[80px] xl:text-[150px] 2xl:text-[200px] font-bold whitespace-nowrap`}
       >
         {[...spacedTitle].map((letter, index) => (
           <motion.span
@@ -49,7 +49,7 @@ const TagLine = ({ spacedTitle, isVisible, delay }) => {
           </motion.span>
         ))}
       </motion.p>
-      <p className={`p2 ${Lexendfont.className}  text-neutral-100 text-[70px] lg:text-[100px] xl:text-[180px] 2xl:text-[230px] font-bold whitespace-nowrap`}>
+      <p className={`p2 ${Lexendfont.className}  text-neutral-100 text-[70px] lg:text-[80px] xl:text-[150px] 2xl:text-[200px] font-bold whitespace-nowrap`}>
         We The Sagacious
       </p>
     </div>

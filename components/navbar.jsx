@@ -28,10 +28,13 @@ const Navbar = () => {
         autoPlay
         playsInline
         muted
-        preload="true"
+        loop
+        
+        preload="auto"
         className="w-[100vw] h-[90vh] sm:h-[110vh] absolute top-0 left-0 z-10 object-cover"
       >
-        <source src="/hero-video.mp4" />{" "}
+        
+        <source src="/hero-video.mp4"  type="video/mp4"  />{" "}
       </video>
 
       {isVisible && (
