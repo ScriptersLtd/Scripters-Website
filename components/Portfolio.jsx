@@ -18,7 +18,8 @@ const Portfolio = () => {
     target: refPortfolio,
     offset: ["0 1", "1 0"],
   });
-  const x1 = useTransform(scrollYProgress, [0,1],[-2000,600])
+  const x1Small = useTransform(scrollYProgress, [0,1],[-2000,600])
+  const x1 = useTransform(scrollYProgress, [0,1],[-600,800])
   const x2 = useTransform(scrollYProgress, [0.2,1],[0,-1000])
   return (
     <div
@@ -27,7 +28,7 @@ const Portfolio = () => {
       data-color="black"
     >
       <div className="flex flex-col gap-1">
-     <motion.div className="flex h-[40vh] xl:h-[50vh]" style={{x : x1}} >
+     <motion.div className="flex h-[40vh] xl:h-[50vh]" style={{x : isSmallScreen? x1Small :x1}} >
         <Image src={"/portfolio-1.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
         <Image src={"/portfolio-2.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
         <Image src={"/portfolio-3.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
