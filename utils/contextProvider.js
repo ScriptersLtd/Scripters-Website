@@ -12,12 +12,11 @@ export const HeroContextProvider = ({ children }) => {
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setIsLogoVisible(true), 7500);
+    setTimeout(() => setIsLogoVisible(true), 2200);
   });
   // useEffect hook shared by all components consuming this context
   useEffect(() => {
     // Example useEffect logic
-    console.log("useEffect executed");
   }, []);
 
   const contextValue = {

@@ -41,7 +41,7 @@ const PortfolioHeading = () => {
       
     >
       <motion.h2
-        className={`z-10 text-[45px] md:text-[70px] lg:text-[100px] whitespace-nowrap text-center sticky top-[4rem] xl:top-[10rem] text-neutral-100 sm:text-neutral-900 font-bold select-none pb-12 sm:pb-0`}
+        className={` z-10 text-[45px] md:text-[70px] lg:text-[100px] whitespace-nowrap text-center sticky top-[4rem] xl:top-[10rem] text-neutral-100 sm:text-neutral-900 font-bold select-none pb-12 sm:pb-0`}
         style={{
           scale: isSmallScreen
             ? noScale

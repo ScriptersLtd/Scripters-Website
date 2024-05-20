@@ -3,16 +3,17 @@ import {
   useAnimate,
   stagger,
   motion,
-  AnimatePresence,
-  LayoutGroup,
 } from "framer-motion";
-import Image from "next/image";
 import { useEffect } from "react";
 import { useHeroContext } from "@/utils/contextProvider";
-import Socials from "./Socials";
+import { Oswald } from "next/font/google";
+
 
 const title = "We The Sagacious";
 const spacedTitle = title.replace(/\s/g, "\u00A0");
+
+const Lexendfont = Oswald({ weight: ["400","700"], subsets: ["latin"] });
+
 
 function useTaglineAnimation(isVisible, delay) {
   const [scope, animate] = useAnimate();
@@ -33,10 +34,10 @@ function useTaglineAnimation(isVisible, delay) {
 const TagLine = ({ spacedTitle, isVisible, delay }) => {
   const scope = useTaglineAnimation(isVisible, delay);
   return (
-    <div className="marquee mt-28 lg:mt-44">
+    <div className="marquee mt-28 lg:mt-44 relative z-10 uppercase">
       <motion.p
         ref={scope}
-        className={`p1 text-neutral-100 text-[50px] sm:text-[70px] lg:text-[100px] xl:text-[120px] whitespace-nowrap`}
+        className={`p1 ${Lexendfont.className} text-neutral-100 text-[70px] lg:text-[100px] xl:text-[230px]  font-bold whitespace-nowrap`}
       >
         {[...spacedTitle].map((letter, index) => (
           <motion.span
@@ -48,7 +49,7 @@ const TagLine = ({ spacedTitle, isVisible, delay }) => {
           </motion.span>
         ))}
       </motion.p>
-      <p className="p2 text-neutral-100 text-[50px] sm:text-[70px] lg:text-[100px] xl:text-[120px] whitespace-nowrap">
+      <p className={`p2 ${Lexendfont.className}  text-neutral-100 text-[70px] lg:text-[100px] xl:text-[230px] font-bold whitespace-nowrap`}>
         We The Sagacious
       </p>
     </div>
@@ -56,19 +57,18 @@ const TagLine = ({ spacedTitle, isVisible, delay }) => {
 };
 
 const Hero = () => {
-  const { isVisible, setIsVisible } = useHeroContext();
+  const { isVisible } = useHeroContext();
   return (
     <div
-      className="panel relative h-[45rem] w-[100vw] overflow-hidden"
+      className="panel relative h-[80vh] sm:h-[100vh] w-[100vw] overflow-hidden bg-neutral-900"
       data-color="black"
     >
       <div className="flex flex-col justify-between pt-20 px-4">
-        <Socials />
-        <motion.p
-          className="text-neutral-100 max-w-lg mt-10 ml-auto my-auto"
+          <motion.p
+          className="text-neutral-100 text-xl max-w-lg mt-10 ml-auto my-auto z-10"
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, delay: 7 }}
+          transition={{ duration: 0.4, delay: 4 }}
         >
           Boost your digital presence with captivating logos, dynamic websites,
           expert SEO, and engaging content. Scripters brings your vision to
@@ -76,54 +76,8 @@ const Hero = () => {
         </motion.p>
       </div>
 
-      <TagLine spacedTitle={spacedTitle} isVisible={isVisible} delay={5} />
-      <LayoutGroup>
-        <AnimatePresence>
-          {isVisible && (
-            <div className="">
-              <motion.div
-                initial={{ opacity: 0, y: 500 }}
-                animate={{ opacity: 0.8, y: 10 }}
-                transition={{ duration: 3, ease: "anticipate", delay: 0.2 }}
-                exit={{ opacity: 0, y: -500 }}
-                className="absolute top-44 right-16 overflow-hidden"
-              >
-                <Image src={"/image-4.jpg"} width={400} height={600} alt="as" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 500 }}
-                animate={{ opacity: 1, y: 10 }}
-                transition={{ duration: 3, ease: "anticipate", delay: 0.8 }}
-                exit={{ opacity: 0, y: -500 }}
-                onAnimationComplete={() => setIsVisible(false)}
-                className="absolute top-80 left-16 overflow-hidden"
-              >
-                <Image src={"/image-1.jpg"} width={400} height={400} alt="as" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 500 }}
-                animate={{ opacity: 1, y: 10 }}
-                transition={{ duration: 3, ease: "anticipate", delay: 0.4 }}
-                exit={{ opacity: 0, y: -500 }}
-                onAnimationComplete={() => setIsVisible(false)}
-                className="absolute top-12 left-36 overflow-hidden "
-              >
-                <Image src={"/image-3.jpg"} width={400} height={400} alt="as" className="hidden lg:block" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 500 }}
-                animate={{ opacity: 1, y: 10 }}
-                transition={{ duration: 3, ease: "anticipate", delay: 0.6 }}
-                exit={{ opacity: 0, y: -500 }}
-                onAnimationComplete={() => setIsVisible(false)}
-                className="absolute top-96 right-[15%] overflow-hidden "
-              >
-                <Image src={"/image-3.jpg"} width={400} height={400} alt="as" className="hidden lg:block" />
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
-      </LayoutGroup>
+      <TagLine spacedTitle={spacedTitle} isVisible={isVisible} delay={4.5} />
+     
     </div>
   );
 };

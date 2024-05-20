@@ -10,7 +10,7 @@ export const Features = () => {
   });
 
   const scale = useTransform(scrollYProgress, [0, 0.9, 1], [0.8, 0.8, 1]);
-  const x = useTransform(scrollYProgress, [0.3, 1], ["50%", "0%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.5, 0.6, 0.85, 0.9],

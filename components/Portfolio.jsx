@@ -18,118 +18,34 @@ const Portfolio = () => {
     target: refPortfolio,
     offset: ["0 1", "1 0"],
   });
-  const y1 = useTransform(scrollYProgress, [0, 0.4], ["20%", "0%"]);
-  const y2 = useTransform(scrollYProgress, [0,0.7,0.8, 1], ["0%","-70%","-80%", "-100%"]);
-  const opacity1 = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.3, 0.4],
-    [0, 1, 1, 0]
-  );
-  const opacity2 = useTransform(
-    scrollYProgress,
-    [0.1, 0.4, 0.7, 0.8],
-    [0, 1, 1, 0]
-  );
-  const smallOpacity1 =useTransform(
-    scrollYProgress,
-    [0, 0.1],
-    [0, 1]
-  );
-  const smallOpacity2 =useTransform(
-    scrollYProgress,
-    [0.4, 0.5],
-    [0, 1]
-  );
-
-  const scaleHeading = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.8],
-    [1, 10, 600]
-  );
-  // const yHeading = useTransform(scrollYProgress,[0,0.8],["0%","700%"])
-
-  const portfolioData1 = [
-    {
-      name: "Aura Furnish",
-      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
-
-      image: "/portfolio-1.jpg",
-    },
-    {
-      name: "Verve Vorgue",
-      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
-
-      image: "/portfolio-2.jpg",
-    },
-    {
-      name: "Habittracker",
-      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
-
-      image: "/portfolio-3.jpg",
-    },
-  ];
-  const portfolioData2 = [
-    {
-      name: "Blaze Byte",
-      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
-
-      image: "/portfolio-4.jpg",
-    },
-    {
-      name: "Stride Ride",
-      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
-
-      image: "/portfolio-5.jpg",
-    },
-    {
-      name: "Vivara",
-      desc: "asdsada das dsa dsad sad ad sadsa sad sad adsa dsada",
-
-      image: "/portfolio-6.jpg",
-    },
-  ];
+  const x1 = useTransform(scrollYProgress, [0,1],[-2000,600])
+  const x2 = useTransform(scrollYProgress, [0.2,1],[0,-1000])
   return (
     <div
-      className="flex flex-col justify-start items-start xl:pb-44 panel bg-neutral-900  xl:h-[400vh] relative"
+      className="flex flex-col justify-start items-start xl:pb-44 panel bg-neutral-900  xl:h-[200vh] relative w-[100vw] overflow-hidden"
       ref={refPortfolio}
       data-color="black"
     >
-      <motion.div
-        className="flex flex-col xl:flex-row xl:sticky xl:top-[10vh]  max-w-lg mx-auto xl:max-w-none"
-        style={{
-          opacity: isSmallScreen ? smallOpacity1 : opacity1,
-          y: isSmallScreen ? 1 : y1,
-        }}
-      >
-        {portfolioData1.map((portfolio) => {
-          return (
-            <>
-              <PortfolioCard
-                title={portfolio.name}
-                desc={portfolio.desc}
-                image={portfolio.image}
-              />
-            </>
-          );
-        })}
-      </motion.div>
-
-      <motion.div
-        className="flex flex-col xl:flex-row xl:sticky xl:top-[120vh] max-w-lg mx-auto xl:max-w-none"
-        style={{ y:isSmallScreen? 1 :y2,  opacity:isSmallScreen? smallOpacity2: opacity2 }}
-      >
-        {portfolioData2.map((portfolio) => {
-          return (
-            <>
-              <PortfolioCard
-                title={portfolio.name}
-                desc={portfolio.desc}
-                image={portfolio.image}
-              />
-            </>
-          );
-        })}
-      </motion.div>
+      <div className="flex flex-col gap-1">
+     <motion.div className="flex h-[40vh] xl:h-[50vh]" style={{x : x1}} >
+        <Image src={"/portfolio-1.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-2.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-3.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-4.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-5.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-6.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-7.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+     </motion.div>
+     <motion.div className="flex h-[40vh] xl:h-[50vh]" style={{x : x2}} >
+        <Image src={"/portfolio-8.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-7.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-6.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-5.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-4.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-3.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-2.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+     </motion.div>
+     </div>
     </div>
   );
 };
@@ -151,10 +67,9 @@ const PortfolioCard = ({ title, y, desc, image }) => {
         src={image}
         width={800}
         height={800}
-        className=" -z-10 w-[800px] h-[500px] object-cover"
+        className="  w-[800px] h-[500px] object-cover"
         alt="asd"
       />
-      <div className="text-4xl text-neutral-100">{title}</div>
     </motion.div>
   );
 };

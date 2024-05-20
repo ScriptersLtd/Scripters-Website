@@ -3,27 +3,38 @@ import { cascadia } from "@/utils/cascadia";
 import { motion, LayoutGroup } from "framer-motion";
 import { useHeroContext } from "@/utils/contextProvider";
 import MenuButton from "./MenuButton";
+import { useEffect } from "react";
 const Navbar = () => {
   const { isLogoVisible, isVisible, isOpen, setOpen } = useHeroContext();
 
   const name = [
-    { name: ":", delay: 3.6 },
-    { name: "/", delay: 3.4 },
-    { name: "S", delay: 3.8 },
-    { name: "c", delay: 3.2 },
-    { name: "r", delay: 3.5 },
-    { name: "i", delay: 3.1 },
-    { name: "p", delay: 2.8 },
-    { name: "t", delay: 3.2 },
-    { name: "e", delay: 3.9 },
-    { name: "r", delay: 3.3 },
-    { name: "s", delay: 3.8 },
-    { name: ">", delay: 3.7 },
+    { name: ":", delay: 0.6 },
+    { name: "/", delay: 0.4 },
+    { name: "S", delay: 0.8 },
+    { name: "c", delay: 0.2 },
+    { name: "r", delay: 0.5 },
+    { name: "i", delay: 0.1 },
+    { name: "p", delay: 0.8 },
+    { name: "t", delay: 0.2 },
+    { name: "e", delay: 0.9 },
+    { name: "r", delay: 0.0 },
+    { name: "s", delay: 0.8 },
+    { name: ">", delay: 0.7 },
   ];
 
   return (
-    <div className="flex justify-end items-center  h-12 w-full">
-      {!isVisible && (
+    <div className="flex justify-end items-center  h-12 w-full bg-neutral-900">
+      <video
+        autoPlay
+        playsInline
+        muted
+        preload="true"
+        className="w-[100vw] h-[90vh] sm:h-[110vh] absolute top-0 left-0 z-10 object-cover"
+      >
+        <source src="/hero-video.mp4" />{" "}
+      </video>
+
+      {isVisible && (
         <>
           <LayoutGroup>
             {!isLogoVisible && (
@@ -80,31 +91,12 @@ const Navbar = () => {
           </LayoutGroup>
         </>
       )}
-      <div className="flex justify-center items-center bg-neutral-100 rounded-full h-8 w-8 sm:h-12 sm:w-12 z-50 fixed right-4 top-4"
-      onClick={() => setOpen(!isOpen)}>
-        <MenuButton isOpen={isOpen}  />
-      </div>
-
-
-
-      {/* <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+      <div
+        className="flex justify-center items-center bg-neutral-100 rounded-full h-8 w-8 sm:h-12 sm:w-12 z-50 fixed right-4 top-4"
+        onClick={() => setOpen(!isOpen)}
       >
-        <motion.ul
-          initial={{ opacity: 0, filter: "blur(5px)" }}
-          animate={{ opacity: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1, delay: 7 }}
-          className="flex gap-x-28 text-neutral-100 text-xl"
-        >
-          <motion.li className="listt">Home</motion.li>
-          <motion.li className="listt">Services</motion.li>
-          <motion.li className="listt">About</motion.li>
-          <motion.li className="listt">Careers</motion.li>
-          <motion.li className="listt">Contact</motion.li>
-        </motion.ul>
-      </motion.div> */}
+        <MenuButton isOpen={isOpen} />
+      </div>
     </div>
   );
 };

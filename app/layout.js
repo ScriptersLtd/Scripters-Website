@@ -1,8 +1,9 @@
-import { Roboto_Mono } from "next/font/google";
+import { Bebas_Neue, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { HeroContextProvider } from "@/utils/contextProvider";
 import SmoothScrolling from "@/components/SmoothScrolling";
-const roboto = Roboto_Mono({ weight: "400", subsets: ["latin"] });
+
+const roboto = Bebas_Neue({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: "ScriptersHub Pvt. Ltd.",
@@ -13,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} `}>
+      <body className={``}>
         <SmoothScrolling>
           <HeroContextProvider>{children}</HeroContextProvider>
         </SmoothScrolling>

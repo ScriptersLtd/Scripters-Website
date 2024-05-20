@@ -1,117 +1,139 @@
 "use client";
 import { useMediaQuery } from "react-responsive";
 import {
-  
   motion,
-
   useScroll,
   useTransform,
 } from "framer-motion";
-import {  useRef } from "react";
+import { useRef } from "react";
 import { cascadia } from "@/utils/cascadia";
-
+import Image from "next/image";
 const Services = () => {
   const isSmallScreen = useMediaQuery({ maxWidth: 1280 });
 
-  const ref = useRef(null);
+  const ref2 = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1 1"],
+    target: ref2,
+    offset: ["0 1", "1 0"],
   });
 
-  const y1 = useTransform(scrollYProgress, [0.33, 0.5], ["0%", "116%"]);
-  const x1 = useTransform(scrollYProgress, [0.33, 0.5], ["0%", "-24%"]);
-  const scale1 = useTransform(scrollYProgress, [0.33, 0.5], [1, 0.12]);
-  const smally1 = useTransform(scrollYProgress, [0.3, 0.5], ["0%", "116%"]);
-  const smallx1 = useTransform(scrollYProgress, [0.3, 0.5], ["0%", "-24%"]);
-  const smallscale1 = useTransform(scrollYProgress, [0.3, 0.5], [1, 0.12]);
+  const w1 = useTransform(scrollYProgress, [0, 0.25], ["0%", "100%"]);
+  const w2 = useTransform(scrollYProgress, [0.25, 0.5], ["0%", "100%"]);
+  const w3 = useTransform(scrollYProgress, [0.5, 0.75], ["0%", "100%"]);
+  const w4 = useTransform(scrollYProgress, [0.75, 1], ["0%", "100%"]);
+  const opacity1 = useTransform(scrollYProgress, [0.06, 0.08], ["0%", "100%"]);
 
-  const x2 = useTransform(scrollYProgress, [0.76, 0.9], ["10%", "13%"]);
-  const y2 = useTransform(
-    scrollYProgress,
-    [0.5, 0.7, 0.76, 0.9],
-    ["-120%%", "0%", "0%", "144%"]
-  );
-  const scale2 = useTransform(
-    scrollYProgress,
-    [0.5, 0.7, 0.76, 0.9],
-    [0.4, 1, 1, 0.33]
-  );
-  const smallx2 = useTransform(scrollYProgress, [0.5, 0.7, 0.76, 0.9], ["10%","0%","0%", "-15%"]);
-  const smally2 = useTransform(
-    scrollYProgress,
-    [0.5, 0.7, 0.76, 0.9],
-    ["-120%%", "0%", "0%", "181%"]
-  );
-  const smallscale2 = useTransform(
-    scrollYProgress,
-    [0.5, 0.7, 0.76, 0.9],
-    [0.43, 1, 1, 0.6]
-  );
+  
 
   return (
     <div
-      className="flex flex-col items-center justify-start panel pt-44"
-      data-color="white"
-      ref={ref}
+      className="flex flex-col items-center justify-start relative h-[1600vh]  "
+      ref={ref2}
     >
-      <h2 className={`${cascadia.className} text-neutral-900 2xl:text-7xl xl:text-6xl md:text-5xl text-4xl font-bold pb-16`}>What we do?</h2>
-      <div className="flex flex-col xl:flex-row w-full items-center justify-between px-4 mx-2 pb-6 mb-6 xl:px-28 xl:mx-6 xl:pb-20 xl:mb-20  border-neutral-900 border-b-2">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold pb-2">
-          Brand Identity
-        </h3>
-        <motion.img
-          src={"/logo-designing.png"}
-          alt="website development"
-          width={600}
-          height={600}
-          style={{
-            scale: isSmallScreen ? smallscale1 : scale1,
-            y: isSmallScreen ? smally1 : y1,
-            x: isSmallScreen ? smallx1 : x1,
-          }}
-          className="z-10 w-[343px] xl:w-[600px]"
-        />
-      </div>
-      <div className=" flex flex-col xl:flex-row w-full items-center justify-between px-4 mx-2 pb-6 mb-6 xl:px-28 xl:mx-6 xl:pb-20 xl:mb-20  border-neutral-900 border-b-2">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold pb-2 ">Website Design</h3>
-        <motion.img
-          src={"/website-designing.png"}
-          alt="website designing"
-          width={600}
-          height={600}
-          style={{}}
-          className="w-[343px] xl:w-[600px]"
-        />
-      </div>
-      <div className=" flex flex-col xl:flex-row w-full items-center justify-between px-4 mx-2 pb-6 mb-6 xl:px-28 xl:mx-6 xl:pb-20 xl:mb-20 border-neutral-900 border-b-2">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold pb-2 whitespace-nowrap">Website Development</h3>
-        <motion.img
-          src={"/website-development.png"}
-          alt="website development"
-          width={600}
-          height={600}
-          style={{
-            x: isSmallScreen ? smallx2 : x2,
-            y: isSmallScreen ? smally2 : y2,
-            scale: isSmallScreen ? smallscale2 : scale2,
-          }}
-          className="w-[343px] xl:w-[600px]"
-        />
-      </div>
-      <div className=" flex flex-col xl:flex-row w-full items-center justify-between px-4 mx-2 pb-6 mb-6 xl:px-28 xl:mx-6 xl:pb-20 xl:mb-20 border-neutral-900 border-b-2">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold pb-2">Digital Marketing</h3>
-        <motion.img
-          src={"/digital-marketing.png"}
-          alt="digital marketing"
-          width={300}
-          height={430}
-          style={{}}
-          className="my-auto w-[343px] xl:w-[343px]"
-        />
-      </div>
+      
+      <motion.div className="absolute left-0 gap-x-4 h-full w-full z-20 flex justify-center pb-20 " style={{opacity: opacity1}}>
+        <div className="w-[23vw] h-1 bg-gray-400/30 rounded-full backdrop-blur-sm sticky top-[90vh]">
+          <motion.div
+            className="h-full bg-neutral-100 rounded-full "
+            style={{ width: w1 }}
+          ></motion.div>
+        </div>
+        <div className="w-[23vw] h-1 bg-gray-400/30 rounded-full backdrop-blur-sm sticky top-[90vh]">
+          <motion.div
+            className="h-full bg-neutral-100 rounded-full "
+            style={{ width: w2 }}
+          ></motion.div>
+        </div>
+        <div className="w-[23vw] h-1 bg-gray-400/30 rounded-full backdrop-blur-sm sticky top-[90vh]">
+          <motion.div
+            className="h-full bg-neutral-100 rounded-full "
+            style={{ width: w3 }}
+          ></motion.div>
+        </div>
+        <div className="w-[23vw] h-1 bg-gray-400/30 rounded-full backdrop-blur-sm sticky top-[90vh]">
+          <motion.div
+            className="h-full bg-neutral-100 rounded-full "
+            style={{ width: w4 }}
+          ></motion.div>
+        </div>
+      </motion.div>
+      {serviceData.map((service, index) => (
+        <div key={index}>
+          <Service image={service.image} desc={service.desc}/>
+        </div>
+      ))}
     </div>
   );
 };
+
+const Service = ({image, desc}) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1 0"],
+  });
+
+  const x1 = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.9, 1],
+    [2000, 1900, -1900, -2000]
+  );
+
+
+  return (
+    <motion.div
+      className="h-[400vh] w-[100vw] relative "
+      ref={ref}
+    >
+      <motion.div className="sticky top-0 h-[100vh] w-[100vw] justify-end items-end flex" >
+        <Image
+          src={"/service-background.jpg"}
+          fill
+          alt=""
+          className="h-full -z-20"
+        />
+
+        <motion.img
+          src={image}
+          width={1920}
+          height={1080}
+          alt=""
+          className="h-[80vh] xl:h-[100vh]  object-cover z-20"
+          // whileHover={{
+          //   scale: 1.1,
+          //   transition: { duration: 1 },
+          // }}
+        />
+        <motion.div
+          className={`absolute left-0  h-full top-[75vh] xl:top-[70vh] 2xl:top-[60vh] whitespace-nowrap max-w-[100vw] overflow-hidden -z-10 text-neutral-100`}
+        >
+          <motion.p
+            className="text-[70px] xl:text-[90px] 2xl:text-[150px] whitespace-nowrap font-bold "
+            style={{ x: x1}}
+          >
+            {desc}
+          </motion.p>
+        </motion.div>
+        <motion.div
+          className={`absolute left-0 h-full top-[75vh] xl:top-[70vh] 2xl:top-[60vh] whitespace-nowrap max-w-[100vw] overflow-hidden  z-30 text-neutral-100`}
+        >
+          <motion.p
+            className="text-[70px] xl:text-[90px] 2xl:text-[150px] whitespace-nowrap font-bold text-stroke"
+            style={{ x: x1 }}
+          >
+            {desc}
+          </motion.p>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const serviceData = [
+  { image: "/service-1.png", desc: "POSTER - BROCHURE - SEO - BRANDING" },
+  { image: "/service-2.png", desc: "WEBSITE DESIGN - WEB DEVELOPMENT - WEBAPPS" },
+  { image: "/service-3.png", desc: "APP DEVELOPMENT - ECOMMERCE - NATIVE DEVELOPMENT" },
+  { image: "/service-4.png", desc: "ORM - DIGITAL BANNER - PHYSICAL MARKETING" },
+];
 
 export default Services;
