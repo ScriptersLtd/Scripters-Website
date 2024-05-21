@@ -27,7 +27,7 @@ const Portfolio = () => {
       ref={refPortfolio}
       data-color="black"
     >
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 mt-10">
      <motion.div className="flex h-[40vh] xl:h-[50vh]" style={{x : isSmallScreen? x1Small :x1}} >
         <Image src={"/portfolio-1.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
         <Image src={"/portfolio-2.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
@@ -36,6 +36,8 @@ const Portfolio = () => {
         <Image src={"/portfolio-5.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
         <Image src={"/portfolio-6.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
         <Image src={"/portfolio-7.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-4.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+
      </motion.div>
      <motion.div className="flex h-[40vh] xl:h-[50vh]" style={{x : x2}} >
         <Image src={"/portfolio-8.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
@@ -44,6 +46,7 @@ const Portfolio = () => {
         <Image src={"/portfolio-5.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
         <Image src={"/portfolio-4.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
         <Image src={"/portfolio-3.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
+        <Image src={"/portfolio-4.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
         <Image src={"/portfolio-2.png"} alt="" className="h-[40vh] xl:h-[50vh]" width={600} height={500}  />
      </motion.div>
      </div>

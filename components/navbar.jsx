@@ -3,10 +3,12 @@ import { cascadia } from "@/utils/cascadia";
 import { motion, LayoutGroup } from "framer-motion";
 import { useHeroContext } from "@/utils/contextProvider";
 import MenuButton from "./MenuButton";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import Hls from "hls.js";
+
 const Navbar = () => {
   const { isLogoVisible, isVisible, isOpen, setOpen } = useHeroContext();
-
+  const videoRef = useRef(null);
   const name = [
     { name: ":", delay: 0.6 },
     { name: "/", delay: 0.4 },
@@ -21,20 +23,34 @@ const Navbar = () => {
     { name: "s", delay: 0.8 },
     { name: ">", delay: 0.7 },
   ];
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource('/video/master.m3u8'); // Update this path with your HLS URL
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = '/video/master.m3u8'; // Update this path with your HLS URL
+      video.addEventListener('loadedmetadata', () => {
+        video.play();
+      });
+    }
+  }, []);
 
   return (
-    <div className="flex justify-end items-center  h-12 w-full bg-neutral-900">
+    <div className="flex justify-center items-center  h-12 w-full bg-black">
       <video
-        autoPlay
+        ref={videoRef}
         playsInline
         muted
-        loop
-        
         preload="auto"
-        className="w-[100vw] h-[90vh] sm:h-[110vh] absolute top-0 left-0 z-10 object-cover"
+        className="w-[40rem] sm:w-[100vw] h-[90vh] sm:h-[110vh] absolute top-0  z-10 object-cover"
       >
-        
-        <source src="/hero-video.mp4"  type="video/mp4"  />{" "}
+        Your browser does not support the video tag.
       </video>
 
       {isVisible && (

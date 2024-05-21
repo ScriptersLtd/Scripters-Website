@@ -105,7 +105,7 @@ const Service = ({image, desc}) => {
           // }}
         />
         <motion.div
-          className={`absolute left-0  h-full top-[75vh] xl:top-[70vh] 2xl:top-[60vh] whitespace-nowrap max-w-[100vw] overflow-hidden -z-10 text-neutral-100`}
+          className={`absolute left-0  h-full top-[75vh] xl:top-[70vh] 2xl:top-[60vh] whitespace-nowrap max-w-[100vw] overflow-hidden z-30 lg:-z-10 text-neutral-100`}
         >
           <motion.p
             className="text-[70px] xl:text-[90px] 2xl:text-[150px] whitespace-nowrap font-bold "
