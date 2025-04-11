@@ -22,7 +22,7 @@ const page = () => {
               Welcome to Scripters! We are a passionate team of developers and designers dedicated to creating innovative and user-friendly web solutions. Our mission is to empower businesses and individuals by providing high-quality, cutting-edge technology services.
             </p>
             <p className="text-lg leading-relaxed mt-4">
-              At Scripters, we believe in the power of collaboration and creativity. Whether you're looking for a custom website, a mobile app, or a unique digital experience, we are here to bring your ideas to life.
+              At Scripters, we believe in the power of collaboration and creativity. Whether you&apos;re looking for a custom website, a mobile app, or a unique digital experience, we are here to bring your ideas to life.
             </p>
           </section>
 
@@ -44,7 +44,7 @@ const page = () => {
                 <li>Digital marketing</li>
               </ul>
               <p className="text-lg leading-relaxed mt-4">
-                Upon confirmation of payment, we initiate the project as per the agreed timeline discussed during the consultation phase. Delivery timelines vary based on the project's scope and complexity and will be communicated clearly before project commencement.
+                Upon confirmation of payment, we initiate the project as per the agreed timeline discussed during the consultation phase. Delivery timelines vary based on the project&apos;s scope and complexity and will be communicated clearly before project commencement.
               </p>
             </div>
 
