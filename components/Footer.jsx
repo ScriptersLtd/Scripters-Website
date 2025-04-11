@@ -23,7 +23,7 @@ const Footer = () => {
 
 
 </div>
-    <p>Read our policy <Link href={"/about"} className="underline">here</Link></p>
+    <p>Read our policy <Link href={"/policy"} className="underline">here</Link></p>
   </div>
   )
 }
