@@ -209,7 +209,7 @@ const Menu = () => {
                 >
                   <motion.li className="listt">Home</motion.li>
                   <motion.li className="listt">Services</motion.li>
-                  <motion.li className="listt">About</motion.li>
+                  <motion.a href="/about" className="listt">About</motion.a>
                   <motion.li className="listt">Careers</motion.li>
                   <motion.li className="listt">Contact</motion.li>
                 </motion.ul>

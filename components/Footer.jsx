@@ -1,5 +1,6 @@
 import { cascadia } from "@/utils/cascadia"
 import { MapPin,Mail,Phone } from "lucide-react"
+import Link from "next/link"
 const Footer = () => {
   return (
     <div className=" absolute backdrop-blur-sm bg-neutral-500/5 p-3 rounded-md bottom-2 lg:bottom-4 xl:bottom-10 max-w-[400px] text-neutral-100 left-5 flex flex-col justify-center items-start gap-y-3">
@@ -19,7 +20,10 @@ const Footer = () => {
     <Phone height={20} width={20} className="text-neutral-100 " />
 
     <p>(021)-34800896</p>
+
+
 </div>
+    <p>Read our policy <Link href={"/about"} className="underline">here</Link></p>
   </div>
   )
 }
